@@ -1,0 +1,47 @@
+<!--build:uncomment<%@ Page language="c#" CodeBehind="index_fw2.aspx.cs" AutoEventWireup="false" Inherits="IMod.Web.V2.Index" %>endbuild-->
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml"> <!--<![endif]-->
+
+{{include "includes/head.html"}}
+
+<body runat="server" id="MainBody">
+<form id="MainForm" method="post" runat="server">
+	<asp:PlaceHolder runat="server" ID="SiteBuilder" Visible="False"><!-- SiteBuilder // --></asp:PlaceHolder>
+	<asp:PlaceHolder runat="server" ID="NavMaster" Visible="False"><!-- NavMaster // --></asp:PlaceHolder>
+	<div id="ContentAdminTools" runat="server" visible="false"></div>
+
+<a name="pagetop" aria-hidden="true"><span class="sr-only">Page Top</span></a>
+  	
+<!-- Navigation drawer -->
+	<!-- MAIN CONTENT AREA -->
+	<div id="app" ></div>
+	
+	<!-- FOOTER -->
+	<div id="ContentMiddle" runat="server">
+		<asp:PlaceHolder runat=server Visible="false">
+		<div runat="server" id="ContentSubGroupHeader"></div>
+		</asp:PlaceHolder>
+		<asp:PlaceHolder runat="server" ID="PageTitleSection" Visible="false">
+		<div> <span id="PageTitle" runat="server" class="PageTitleHeader"></span> <span id="PageSubTitle" runat="server" class="PageSubTitleHeader" visible="False"></span> <span id="PageTitleLink" runat="server" class="PageSubTitleHeader" visible="False"></span> </div>
+		<div id="PageInstructions" runat="server" class="instructions"></div>
+		</asp:PlaceHolder></div>
+<div class="toplink visible-xs-block"><a href="#pagetop" role="button"><div class="fa fa-arrow-circle-o-up"></div> Back to Top</a></div>
+
+</form>
+<asp:PlaceHolder runat="server" ID="phFacebookSupport"></asp:PlaceHolder>
+
+{{include "includes/footer-scripts.html"}}
+
+<script>
+jQuery(document).ready(function(){
+ 
+	
+})
+</script>
+
+</body>
+</html>

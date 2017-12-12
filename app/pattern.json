@@ -1,0 +1,99 @@
+{
+
+    "html" : "",
+    "styles" : "", 
+    "scripts" : '<!-- TABS -->
+    <section class="imod-tabs-1 sectionRow tabSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 sectionHeader" id="ContentMiddleLayoutTabs1Hdr" runat="server">
+                    <h2>Tabbed/Social Content #1</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="section-tabs">
+                    <div class="tabs-wrap horizontal">
+                        <div class="menuwrap" id="ContentMiddleLayoutTabsNav1" runat="server">
+                            <ul class="menu">
+                                <li class="active"><a href="#tab1" class="tabLink">Facebook</a></li>
+                                <li><a href="#tab2" class="tabLink">Twitter</a></li>
+                                <li><a href="#tab3" class="tabLink">Instagram</a></li>
+                                <li><a href="#tab4" class="tabLink">Youtube</a></li>
+                                <li><a href="#tab5" class="tabLink">LinkedIn</a></li>
+                            </ul>
+                            <ul class="mobilemenu visible-xs">
+                                <li class="active"><a href="#tab1" class="tabLink">Facebook</a></li>
+                                <li><a href="#tab2" class="tabLink">Twitter</a></li>
+                                <li><a href="#tab3" class="tabLink">Instagram</a></li>
+                                <li><a href="#tab4" class="tabLink">Youtube</a></li>
+                                <li><a href="#tab5" class="tabLink">LinkedIn</a></li>
+                            </ul>
+                        </div>
+                        <div class="content">
+                            <div class="content-container active" id="tab1">
+                                <div id="ContentMiddleLayout1Tab1" runat="server">
+    
+                                    <!--
+                                    <div class="thumb" style="background-image:url([ThumbnailUrl]);"><img src="[ThumbnailUrl]" alt="[Content Name]"></div>
+                                    <div class="text">
+                                        <div class="title">[Link][Content Name][/Link]</div>
+                                        <div class="preview">[Preview]</div>
+                                    </div>
+                                    -->
+    
+                                    <div class="thumb" style="background-image:url(https://unsplash.it/300/250/?random);"><img src="https://unsplash.it/300/250/?random"></div>
+                                    <div class="text">
+                                        <div class="title"><a href="#">Lorem Ipsum Title</a></div>
+                                        <div class="preview">Quisque in enim non leo laoreet luctus. Mauris rhoncus tortor non feugiat lobortis. Nunc volutpat purus ante, ut laoreet est vehicula ac.</div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="content-container " id="tab2">
+                                <div id="ContentMiddleLayout1Tab2" runat="server">
+                                    <div class="thumb" style="background-image:url(https://unsplash.it/300/260/?random);"><img src="https://unsplash.it/300/260/?random"></div>
+                                    <div class="text">
+                                        <div class="title"><a href="#">Lorem Ipsum Title 2</a></div>
+                                        <div class="preview">Quisque in enim non leo laoreet luctus. Mauris rhoncus tortor non feugiat lobortis. Nunc volutpat purus ante, ut laoreet est vehicula ac.</div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="content-container " id="tab3">
+                                <div id="ContentMiddleLayout1Tab3" runat="server">
+                                    <div class="thumb" style="background-image:url(https://unsplash.it/300/270/?random);"><img src="https://unsplash.it/300/270/?random"></div>
+                                    <div class="text">
+                                        <div class="title"><a href="#">Lorem Ipsum Title 3</a></div>
+                                        <div class="preview">Quisque in enim non leo laoreet luctus. Mauris rhoncus tortor non feugiat lobortis. Nunc volutpat purus ante, ut laoreet est vehicula ac.</div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="content-container " id="tab4">
+                                <div id="ContentMiddleLayout3Tab4" runat="server">
+                                    <div class="thumb" style="background-image:url(https://unsplash.it/300/280/?random);"><img src="https://unsplash.it/300/280/?random"></div>
+                                    <div class="text">
+                                        <div class="title"><a href="#">Lorem Ipsum Title 4</a></div>
+                                        <div class="preview">Quisque in enim non leo laoreet luctus. Mauris rhoncus tortor non feugiat lobortis. Nunc volutpat purus ante, ut laoreet est vehicula ac.</div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="content-container " id="tab5">
+                                <div id="ContentMiddleLayout3Tab5" runat="server">
+                                    <div class="thumb" style="background-image:url(https://unsplash.it/300/290/?random);"><img src="https://unsplash.it/300/290/?random"></div>
+                                    <div class="text">
+                                        <div class="title"><a href="#">Lorem Ipsum Title 5</a></div>
+                                        <div class="preview">Quisque in enim non leo laoreet luctus. Mauris rhoncus tortor non feugiat lobortis. Nunc volutpat purus ante, ut laoreet est vehicula ac.</div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>'
+
+}
