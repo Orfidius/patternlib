@@ -1,6 +1,22 @@
+
+.openJsonButton{ 
+    position: fixed; 
+    bottom: 0; 
+    padding: 15px;
+    cursor: pointer;
+    right: 10%; 
+    font-size: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+
 .jsonGenerator {
+    &.open {  bottom: 10%;}
+    &.closed { bottom: -100%;}
   position: fixed;
-  top: 10%;
   left: 10%;
   width: 80%;
   height: auto;
@@ -11,10 +27,18 @@
   flex-direction: column;
   padding: 40px;
   border-radius: 50px;
+  transition: all 700ms ease-out;
   .jsonHeader {
     width: 100%;
     h2 {
       text-align: center;
+    }
+    .fa.fa-times-circle {
+        font-size: 24px; 
+        position: absolute; 
+        top: 20px; 
+        right: 20px;
+        cursor: pointer;
     }
   }
   .pane {
@@ -54,30 +78,87 @@
         width: 100%;
       }
     }
+    &.jsonMeta {
+      max-width: 1200px;
+      margin: 0 auto;
+      .inputgroup {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        label {
+          padding: 10px 20px;
+          margin: 10px 0;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+          max-width: 200px;
+        }
+        input {
+          width: 70%;
+          padding: 10px;
+          margin: 10px 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        textarea {
+          width: 100%;
+        }
+      }
+      .patternDescWrap {
+        flex-direction: column;
+        label {
+          width: 30%;
+          border-bottom-left-radius: 0px;          
+          border-bottom-right-radius: 0px;
+          border-top-right-radius: 20px;
+          margin-bottom: 0;
+        }
+      }
+    }
 
     .paneButton {
       width: 100%;
       display: flex;
       justify-content: center;
-      padding-top: 20px; 
+      padding-top: 20px;
       margin-top: 30px;
       border-top: 1px dotted #fff;
       button {
         background-color: @red;
         color: #fff;
         border-radius: 30px;
+
         padding: 5px 50px;
         text-align: center;
-        transition: all 400ms ease; 
+        transition: all 400ms ease;
         border: none;
         &:hover {
           color: @red;
           background-color: #fff;
         }
+        &.next {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        &.preview {
+          background-color: @green;
+          margin-right: 3px;
+          margin-left: 3px;
+          border-radius: 0;
+          &:hover {
+            background-color: #fff;
+            color: @green;
+          }
+        }
+        &.previous {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
       }
     }
   }
-  .pane:nth-child(2) {
+  .pane:nth-child(3) {
+    //temporary while styling
     display: flex;
-  } //temporary while styling
+  }
 }

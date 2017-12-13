@@ -1,16 +1,15 @@
 import React from "react";
-import ReactRouter from 'react-router';
+import ReactRouter from "react-router";
 
 import Pattern from "./containers/pattern.component";
-import Jsongenerator from "./containers/jsonGenerator/jsonGenerator.component.js";
-
+import Jsongenerator from "./containers/jsonGenerator.component.js";
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
 
-     this.data = new Promise((resolve, reject) => {
-        this.state = { data: {}};
+    // get Data
+    this.data = new Promise((resolve, reject) => {
       jQuery.ajax("/data/pattern.json", {
         success: function(result, status) {
           //   console.log("Ajax Complete: ", status);
@@ -19,31 +18,49 @@ class Main extends React.Component {
         }
       });
     });
-    this.state.data = {};
-        this.data.then((function(jsonData){
-        this.setState({data: jsonData});
-    }).bind(this));
+    this.data.then(
+      function(jsonData) {
+        this.setState({ data: jsonData });
+      }.bind(this)
+    );
 
-    
-  };
+    //set state
+    this.state = {
+      data: {},
+      showGen: "closed"
+    };
 
-  componentWillMount() {
 
+  // Function Bindings
+    this.showJsonGenerator = this.showJsonGenerator.bind(this);
+  }
+
+  showJsonGenerator(event) {
+    console.log("Show Json Clicked");
+    if (this.state.showGen == "closed") {
+      this.setState({ showGen: "open" });
+    }
+    if (this.state.showGen == "open") {
+      this.setState({ showGen: "closed" });
+    }
   }
 
   render() {
-    console.log("Main Comp", this.state.data);
+    // console.log("Main Comp", this.state.data);
+
     return (
       <div>
         <h1> Hello </h1>
         <div>
           <p> This is the main Component </p>
           <div className="row">
-          <Pattern className="container" data={this.state.data} />
+            <Pattern className="container" data={this.state.data} />
           </div>
-      
         </div>
-        <Jsongenerator data={this.state.data} />
+        <div className="openJsonButton" onClick={this.showJsonGenerator}>
+          <i className="fa fa-chevron-circle-up" aria-hidden="true" />
+        </div>
+        <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />
       </div>
     );
   }

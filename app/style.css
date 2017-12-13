@@ -370,9 +370,20 @@ footer ul.social li a {
     transform: translate3d(-30%, 0, 0);
   }
 }
+.openJsonButton {
+  position: fixed;
+  bottom: 0;
+  padding: 15px;
+  cursor: pointer;
+  right: 10%;
+  font-size: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #222;
+  color: #fff;
+}
 .jsonGenerator {
   position: fixed;
-  top: 10%;
   left: 10%;
   width: 80%;
   height: auto;
@@ -383,12 +394,26 @@ footer ul.social li a {
   flex-direction: column;
   padding: 40px;
   border-radius: 50px;
+  transition: all 700ms ease-out;
+}
+.jsonGenerator.open {
+  bottom: 10%;
+}
+.jsonGenerator.closed {
+  bottom: -100%;
 }
 .jsonGenerator .jsonHeader {
   width: 100%;
 }
 .jsonGenerator .jsonHeader h2 {
   text-align: center;
+}
+.jsonGenerator .jsonHeader .fa.fa-times-circle {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 .jsonGenerator .pane {
   display: none;
@@ -427,6 +452,43 @@ footer ul.social li a {
 .jsonGenerator .pane .inputgroup.nextButton {
   width: 100%;
 }
+.jsonGenerator .pane.jsonMeta {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.jsonGenerator .pane.jsonMeta .inputgroup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.jsonGenerator .pane.jsonMeta .inputgroup label {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  max-width: 200px;
+}
+.jsonGenerator .pane.jsonMeta .inputgroup input {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.jsonGenerator .pane.jsonMeta .inputgroup textarea {
+  width: 100%;
+}
+.jsonGenerator .pane.jsonMeta .patternDescWrap {
+  flex-direction: column;
+}
+.jsonGenerator .pane.jsonMeta .patternDescWrap label {
+  width: 30%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 20px;
+  margin-bottom: 0;
+}
 .jsonGenerator .pane .paneButton {
   width: 100%;
   display: flex;
@@ -448,7 +510,25 @@ footer ul.social li a {
   color: #ef6653;
   background-color: #fff;
 }
-.jsonGenerator .pane:nth-child(2) {
+.jsonGenerator .pane .paneButton button.next {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.jsonGenerator .pane .paneButton button.preview {
+  background-color: #87c952;
+  margin-right: 3px;
+  margin-left: 3px;
+  border-radius: 0;
+}
+.jsonGenerator .pane .paneButton button.preview:hover {
+  background-color: #fff;
+  color: #87c952;
+}
+.jsonGenerator .pane .paneButton button.previous {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.jsonGenerator .pane:nth-child(3) {
   display: flex;
 }
 /*# sourceMappingURL=app/style.css.map */

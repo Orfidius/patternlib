@@ -78,7 +78,7 @@ export default class Pattern extends React.Component {
   }
 
   render() {
-    console.log("pattern Comp", this.props.data);
+    // console.log("pattern Comp", this.props.data);
 
     return (
       <div>
