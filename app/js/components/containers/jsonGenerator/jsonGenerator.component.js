@@ -5,8 +5,13 @@ export default class Jsongenerator extends React.Component {
   constructor(props) {
     super(props);
     this.data = {};
+
+    //funciton bindings
     this.updateData = this.updateData.bind(this);
     this.generateJson = this.generateJson.bind(this);
+    this.switchPage = this.switchPage.bind(this);
+
+    this.state = { style: {}, open: false, curPane: "jsonMeta" };
   }
 
   updateData(event) {
@@ -29,11 +34,16 @@ export default class Jsongenerator extends React.Component {
     }
   }
 
+  switchPage(event) {}
+
   render() {
     return (
-      <div id="jsonMeta" className="container">
+      <div className="jsonGenerator">
+        <div className="jsonHeader">
+          <h2> Data Generator </h2>
+        </div>
         <form id="jsonGen">
-          <div  className="pane">
+          <div id="jsonMeta" className="pane">
             <div className="inputgroup">
               <label htmlFor="patternName">Name</label>
               <input
@@ -85,11 +95,11 @@ export default class Jsongenerator extends React.Component {
                 onChange={this.updateData}
               />
             </div>
-            <div className="inputgroup">
-              <button onClick={}>Next</button>
+            <div className="inputgroup paneButton">
+              <button>Next</button>
             </div>
           </div>
-          <div id="jsonDependancies"  className="pane"> 
+          <div id="jsonDependancies" className="pane">
             <div className="inputgroup">
               <label>styles</label>
               <textarea
@@ -98,9 +108,12 @@ export default class Jsongenerator extends React.Component {
                 onChange={this.updateData}
               />
             </div>
-            <div className="inputgroup">
-            <button onClick={this.generateJson}>Generate</button>
+            <div className="nextButton">
+              <button onClick={this.generateJson}>Generate</button>
             </div>
+          </div>
+          <div className="inputgroup">
+            <button>Preview</button>
           </div>
         </form>
       </div>

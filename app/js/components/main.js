@@ -2,8 +2,7 @@ import React from "react";
 import ReactRouter from 'react-router';
 
 import Pattern from "./containers/pattern.component";
-import Jsongenerator from "./containers/jsonGenerator.component.js"
-import Jsongenerator from "./containers/jsonGenerator/jsonGenerator.component.js"
+import Jsongenerator from "./containers/jsonGenerator/jsonGenerator.component.js";
 
 
 class Main extends React.Component {
@@ -35,17 +34,16 @@ class Main extends React.Component {
   render() {
     console.log("Main Comp", this.state.data);
     return (
-      <div className="container">
+      <div>
         <h1> Hello </h1>
         <div>
           <p> This is the main Component </p>
           <div className="row">
-          <Pattern data={this.state.data} />
+          <Pattern className="container" data={this.state.data} />
           </div>
-          <div className="row">
-            <Jsongenerator data={this.state.data} />
-          </div>
+      
         </div>
+        <Jsongenerator data={this.state.data} />
       </div>
     );
   }
