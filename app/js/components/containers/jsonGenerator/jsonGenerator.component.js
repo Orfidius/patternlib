@@ -47,6 +47,7 @@ export default class Jsongenerator extends React.Component {
             <div className="inputgroup">
               <label htmlFor="patternName">Name</label>
               <input
+                type="text"
                 name="patternName"
                 id="patternName"
                 onChange={this.updateData}
@@ -55,6 +56,7 @@ export default class Jsongenerator extends React.Component {
             <div className="inputgroup">
               <label htmlFor="patternTags">tags</label>
               <input
+                type="text"
                 name="patterntTags"
                 id="patternTags"
                 onChange={this.updateData}
@@ -63,8 +65,26 @@ export default class Jsongenerator extends React.Component {
             <div className="inputgroup">
               <label htmlFor="patternAuthor">Author</label>
               <input
+                type="text"
                 name="patterntAuthor"
                 id="patternAuthor"
+                onChange={this.updateData}
+              />
+            </div>
+            <div className="inputgroup">
+              <label htmlFor="patternAuthor">Author</label>
+              <input
+                type="text"
+                name="patterntAuthor"
+                id="patternAuthor"
+                onChange={this.updateData}
+              />
+            </div>
+            <div className="inputgroup">
+              <label htmlFor="patternDescription">Description</label>
+              <textarea
+                name="patterntDescription"
+                id="patternDescription"
                 onChange={this.updateData}
               />
             </div>
