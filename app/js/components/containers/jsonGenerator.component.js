@@ -34,7 +34,10 @@ export default class Jsongenerator extends React.Component {
     }
   }
   
-  switchPage(event) {}
+  switchPage(event) {
+      
+
+  }
 
   render() {
     return (
@@ -42,6 +45,11 @@ export default class Jsongenerator extends React.Component {
         <div className="jsonHeader">
           <h2> Data Generator </h2>
           <i className="fa fa-times-circle" aria-hidden="true" />
+        </div>
+        <div class="activePaneNumber"> 
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
         </div>
         <form id="jsonGen">
           <div id="jsonMeta" className="pane jsonMeta">
@@ -129,20 +137,24 @@ export default class Jsongenerator extends React.Component {
               <button className="next">Next</button>
             </div>
           </div>
-          <div id="jsonDependancies" className="pane">
+          <div id="jsonDependancies" className="pane jsonDependancies">
             <div className="inputgroup">
-              <label>styles</label>
-              <textarea
+              <label>Dependancies</label>
+              <input
+              type="text"
                 id="patternStyles"
                 name="patternStyles"
                 onChange={this.updateData}
               />
             </div>
+            <div className="inputgroup">
+            <p> Jquery and Bootstrap added by default </p> 
+            </div>
             <div className="paneButton">
               <button className="previous">Previous</button>
               <button className="preview">Preview</button>
-              <button className="next" onClick={this.nextJson}>
-                next
+              <button className="next finish" onClick={this.nextJson}>
+                Finish
               </button>
             </div>
           </div>

@@ -452,16 +452,19 @@ footer ul.social li a {
 .jsonGenerator .pane .inputgroup.nextButton {
   width: 100%;
 }
-.jsonGenerator .pane.jsonMeta {
+.jsonGenerator .pane.jsonMeta,
+.jsonGenerator .pane.jsonDependancies {
   max-width: 1200px;
   margin: 0 auto;
 }
-.jsonGenerator .pane.jsonMeta .inputgroup {
+.jsonGenerator .pane.jsonMeta .inputgroup,
+.jsonGenerator .pane.jsonDependancies .inputgroup {
   width: 100%;
   display: flex;
   flex-direction: row;
 }
-.jsonGenerator .pane.jsonMeta .inputgroup label {
+.jsonGenerator .pane.jsonMeta .inputgroup label,
+.jsonGenerator .pane.jsonDependancies .inputgroup label {
   padding: 10px 20px;
   margin: 10px 0;
   border-bottom-left-radius: 20px;
@@ -469,20 +472,24 @@ footer ul.social li a {
   border-top-right-radius: 0;
   max-width: 200px;
 }
-.jsonGenerator .pane.jsonMeta .inputgroup input {
+.jsonGenerator .pane.jsonMeta .inputgroup input,
+.jsonGenerator .pane.jsonDependancies .inputgroup input {
   width: 70%;
   padding: 10px;
   margin: 10px 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.jsonGenerator .pane.jsonMeta .inputgroup textarea {
+.jsonGenerator .pane.jsonMeta .inputgroup textarea,
+.jsonGenerator .pane.jsonDependancies .inputgroup textarea {
   width: 100%;
 }
-.jsonGenerator .pane.jsonMeta .patternDescWrap {
+.jsonGenerator .pane.jsonMeta .patternDescWrap,
+.jsonGenerator .pane.jsonDependancies .patternDescWrap {
   flex-direction: column;
 }
-.jsonGenerator .pane.jsonMeta .patternDescWrap label {
+.jsonGenerator .pane.jsonMeta .patternDescWrap label,
+.jsonGenerator .pane.jsonDependancies .patternDescWrap label {
   width: 30%;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
