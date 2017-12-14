@@ -40,7 +40,7 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%= config.app %>/js/{,*/}*.js','<%= config.app %>/js/components/{,*/}*.js',  '<%= config.app %>/{,*/}*.html', '<%= config.app %>/{,*/}*.less' ],
+        files: ['<%= config.app %>/js/{,*/}*.js', '<%= config.app %>/js/{,*/}/{,*/}*.js', '<%= config.app %>/{,*/}*.html', '<%= config.app %>/{,*/}*.less' ],
         tasks: 'build_pieces',
         options: {
           livereload: true
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 3000,
         open: 'http://localhost:9000/interior.html',
         // Change this to '0.0.0.0' to access the server from outside
         hostname: '0.0.0.0'
@@ -341,7 +341,7 @@ module.exports = function (grunt) {
         src: ['<%= config.dist %>/*.aspx']
       }
     },
-    
+     
     //Create Print Logo task
     create_print_logo: {
       default: {
