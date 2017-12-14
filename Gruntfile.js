@@ -401,7 +401,6 @@ module.exports = function (grunt) {
     'clean:trans',           
     'pixrem',
 		'postcss',
-		'create_print_logo'
 	]);
 
   grunt.registerTask('build', [

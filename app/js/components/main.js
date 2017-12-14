@@ -34,17 +34,18 @@ class Main extends React.Component {
   render() {
     console.log("Main Comp", this.state.data);
     return (
-      <div className="container">
+      <div>
         <h1> Hello </h1>
-        <div>
+        <div className="container">
           <p> This is the main Component </p>
           <div className="row">
-          <Pattern data={this.state.data} />
+            <Pattern data={this.state.data} />
           </div>
           <div className="row">
-            <Jsongenerator data={this.state.data} />
           </div>
         </div>
+        <Jsongenerator data={this.state.data} />
+        
       </div>
     );
   }
