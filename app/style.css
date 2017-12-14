@@ -415,11 +415,28 @@ footer ul.social li a {
   right: 20px;
   cursor: pointer;
 }
+.jsonGenerator.meta .jsonMeta.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
+.jsonGenerator.elements .jsonElements.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
+.jsonGenerator.dependancies .jsonDependancies.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
 .jsonGenerator .pane {
   display: none;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  opacity: 0;
+  transition: all 1s;
 }
 .jsonGenerator .pane .inputgroup {
   width: 33.33%;
@@ -446,7 +463,8 @@ footer ul.social li a {
   color: #222;
 }
 .jsonGenerator .pane .inputgroup textarea {
-  height: 400px;
+  max-height: 400px;
+  min-height: 100px;
   border-top-left-radius: 0;
 }
 .jsonGenerator .pane .inputgroup.nextButton {
@@ -471,6 +489,7 @@ footer ul.social li a {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   max-width: 200px;
+  min-width: 100px;
 }
 .jsonGenerator .pane.jsonMeta .inputgroup input,
 .jsonGenerator .pane.jsonDependancies .inputgroup input {
@@ -480,84 +499,9 @@ footer ul.social li a {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-<<<<<<< HEAD
-.jsonGenContainer {
-  position: fixed;
-  width: 100%;
-  background-color: #222;
-  color: #fff;
-  bottom: calc(-629px);
-  padding: 0 0 20vh 0;
-  font-family: helvetica, sans-serif;
-  transition: all 400ms;
-}
-.jsonGenContainer .jsonHeader {
-  cursor: pointer;
-  text-align: center;
-  padding: 20px 0;
-  text-transform: uppercase;
-}
-.jsonGenContainer .row {
-  padding: 15px 20px;
-}
-.jsonGenContainer .jsonMeta {
-  border: 2px solid #eee;
-  border-radius: 50px;
-}
-.jsonGenContainer .jsonPattern .inputgroup {
-  flex-direction: column;
-}
-.jsonGenContainer .jsonPattern .inputgroup label {
-  display: block;
-  border-bottom: 2px solid #ccc;
-  margin: 0 10px 10px 10px;
-  width: 30%;
-}
-.jsonGenContainer .inputgroup {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-.jsonGenContainer .inputgroup label {
-  padding-right: 15px;
-  text-transform: uppercase;
-}
-.jsonGenContainer .inputgroup input {
-  background-color: #555;
-  color: #fff;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border: 1px solid #ccc;
-}
-.jsonGenContainer .inputgroup textarea {
-  width: 100%;
-  height: 300px;
-  color: #fff;
-  background-color: #555;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-.jsonGenContainer .jsonButton {
-  display: flex;
-  justify-content: center;
-}
-.jsonGenContainer .jsonButton button {
-  background-color: #000;
-  border: 2px solid #fff;
-  padding: 10px 30px;
-  text-transform: uppercase;
-  border-radius: 20px;
-}
-/* TAB 1 STYLES 
----------------------------------------------*/
-.tabSection {
-  padding: 60px 0 60px;
-=======
 .jsonGenerator .pane.jsonMeta .inputgroup textarea,
 .jsonGenerator .pane.jsonDependancies .inputgroup textarea {
   width: 100%;
->>>>>>> 0479bc3088d374500ad5f11450c4fca9d69f95c0
 }
 .jsonGenerator .pane.jsonMeta .patternDescWrap,
 .jsonGenerator .pane.jsonDependancies .patternDescWrap {
@@ -609,8 +553,5 @@ footer ul.social li a {
 .jsonGenerator .pane .paneButton button.previous {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-}
-.jsonGenerator .pane:nth-child(3) {
-  display: flex;
 }
 /*# sourceMappingURL=app/style.css.map */

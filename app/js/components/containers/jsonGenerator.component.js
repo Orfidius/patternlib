@@ -11,7 +11,7 @@ export default class Jsongenerator extends React.Component {
     this.generateJson = this.generateJson.bind(this);
     this.switchPage = this.switchPage.bind(this);
 
-    this.state = { style: {}, open: false, curPane: "jsonMeta" };
+    this.state = { style: {}, open: false, curIndex: 1, curPane: "meta" };
   }
 
   updateData(event) {
@@ -33,32 +33,60 @@ export default class Jsongenerator extends React.Component {
       file.saveAs(generatedFile);
     }
   }
-  
+
   switchPage(event) {
-      
+    event.preventDefault();
+    console.log('Switching Pages: ', this.state.curIndex);
+    let type = event.target.dataset.type;
+    if (this.state.curIndex > 0 && this.state.curIndex < 4) {
+      console.log("inside curPane conditional");
+      console.log('type', type);
+      let newIndex = 1;      
+
+      if (type == "previous") {
+         newIndex = (this.state.curIndex - 1);
+      }
+      if (type == "next") {
+        console.log('inside of next conditional');
+         newIndex = (this.state.curIndex + 1);
+      }
+      console.log(newIndex);
+      switch (newIndex) {
+        case 1:
+          this.setState({ curIndex: newIndex, curPane: "meta" });
+          break;
+        case 2:
+          this.setState({ curIndex: newIndex, curPane: "elements" });
+          break;
+        case 3:
+          this.setState({ curIndex: newIndex, curPane: "dependancies" });
+          break;
+      }
+    }
+  }
 
   showForm(event) {
-    console.log('Showing form...I hope');
     let styleOpen = { bottom: "0" };
     let styleClosed = { bottom: "calc(-629px)" };
 
     if (this.state.open) {
-        this.setState({style: styleClosed, open: false});
-        
+      this.setState({ style: styleClosed, open: false });
     }
     if (!this.state.open) {
-      this.setState({style: styleOpen, open: true});
+      this.setState({ style: styleOpen, open: true });
     }
   }
 
   render() {
     return (
-      <div className={"jsonGenerator " + this.props.isOpen} >
+      <div
+        className={"jsonGenerator " + this.props.isOpen + " " + this.state.curPane}
+      >
         <div className="jsonHeader">
           <h2> Data Generator </h2>
           <i className="fa fa-times-circle" aria-hidden="true" />
         </div>
-        <div class="activePaneNumber"> 
+        <div className="activePaneNumber">
           <span>1</span>
           <span>2</span>
           <span>3</span>
@@ -110,15 +138,17 @@ export default class Jsongenerator extends React.Component {
               />
             </div>
             <div className="paneButton">
-              <button className="previous">Previous</button>
+              <button onClick={this.switchPage} data-type="previous" className="previous">
+                Previous
+              </button>
               <button className="preview">Preview</button>
-              <button className="next" onClick={this.nextJson}>
+              <button  onClick={this.switchPage} data-type="next" className="next">
                 next
               </button>
             </div>
           </div>
 
-          <div id="jsonElements" className="pane">
+          <div id="jsonElements" className="pane jsonElements">
             <div className="inputgroup">
               <label>styles</label>
               <textarea
@@ -143,30 +173,38 @@ export default class Jsongenerator extends React.Component {
                 onChange={this.updateData}
               />
             </div>
-            <div className="inputgroup paneButton">
-              <button className="previous">Previous</button>
+            <div className="paneButton">
+              <button onClick={this.switchPage} data-type="previous" className="previous">
+                Previous
+              </button>
               <button className="preview">Preview</button>
-              <button className="next">Next</button>
+              <button onClick={this.switchPage} data-type="next" className="next">
+                next
+              </button>
             </div>
           </div>
           <div id="jsonDependancies" className="pane jsonDependancies">
             <div className="inputgroup">
               <label>Dependancies</label>
               <input
-              type="text"
+                type="text"
                 id="patternStyles"
                 name="patternStyles"
                 onChange={this.updateData}
               />
             </div>
             <div className="inputgroup">
-            <p> Jquery and Bootstrap added by default </p> 
+              <p> Jquery and Bootstrap added by default </p>
             </div>
             <div className="paneButton">
-              <button className="previous">Previous</button>
-              <button className="preview">Preview</button>
-              <button className="next finish" onClick={this.nextJson}>
-                Finish
+              <button onClick={this.switchPage} data-type="previous" className="previous">
+                Previous
+              </button>
+              <button className="preview">
+                Preview
+              </button>
+              <button onClick={this.switchPage} data-type="next" className="next">
+                next
               </button>
             </div>
           </div>

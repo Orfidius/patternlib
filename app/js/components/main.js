@@ -53,14 +53,7 @@ class Main extends React.Component {
         <h1> Hello </h1>
         <div className="container">
           <p> This is the main Component </p>
-          <div className="row">
-            <Pattern data={this.state.data} />
-          </div>
-          <div className="row">
-          </div>
-        </div>
-        <Jsongenerator data={this.state.data} />
-        
+          <div className="row">    
             <Pattern className="container" data={this.state.data} />
           </div>
         </div>
