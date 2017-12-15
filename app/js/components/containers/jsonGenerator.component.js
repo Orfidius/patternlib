@@ -23,8 +23,8 @@ export default class Jsongenerator extends React.Component {
     event.preventDefault();
     console.log("json", this.props.data);
     if (this.props.data) {
-      // let newData = this.props.data.push(this.data);
-      let newData = [this.props.data, this.data];
+      let newData = []; // After the data object contains the correct array, we'll add it here
+      newData.push(this.data);
       let generated = JSON.stringify(newData);
       console.log(generated);
       let generatedFile = new File([generated], "pattern.json", {
@@ -39,18 +39,18 @@ export default class Jsongenerator extends React.Component {
     console.log('Switching Pages: ', this.state.curIndex);
     let type = event.target.dataset.type;
     if (this.state.curIndex > 0 && this.state.curIndex < 4) {
-      console.log("inside curPane conditional");
-      console.log('type', type);
+      // console.log("inside curPane conditional");
+      // console.log('type', type);
       let newIndex = 1;      
 
       if (type == "previous") {
          newIndex = (this.state.curIndex - 1);
       }
       if (type == "next") {
-        console.log('inside of next conditional');
+        // console.log('inside of next conditional');
          newIndex = (this.state.curIndex + 1);
       }
-      console.log(newIndex);
+      // console.log(newIndex);
       switch (newIndex) {
         case 1:
           this.setState({ curIndex: newIndex, curPane: "meta" });
@@ -169,7 +169,7 @@ export default class Jsongenerator extends React.Component {
               <label>Java Script</label>
               <textarea
                 id="patternScript"
-                name="patternHtml"
+                name="patternScript"
                 onChange={this.updateData}
               />
             </div>
@@ -185,11 +185,20 @@ export default class Jsongenerator extends React.Component {
           </div>
           <div id="jsonDependancies" className="pane jsonDependancies">
             <div className="inputgroup">
-              <label>Dependancies</label>
+              <label>Javascript</label>
               <input
                 type="text"
-                id="patternStyles"
-                name="patternStyles"
+                id="patternJsDep"
+                name="patternJsDep"
+                onChange={this.updateData}
+              />
+            </div>
+            <div className="inputgroup">
+              <label>Css</label>
+              <input
+                type="text"
+                id="patternCssDep"
+                name="patternCssDep"
                 onChange={this.updateData}
               />
             </div>
@@ -203,8 +212,8 @@ export default class Jsongenerator extends React.Component {
               <button className="preview">
                 Preview
               </button>
-              <button onClick={this.switchPage} data-type="next" className="next">
-                next
+              <button onClick={this.generateJson} data-type="next" className="next">
+                Generate
               </button>
             </div>
           </div>

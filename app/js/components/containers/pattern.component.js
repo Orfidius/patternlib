@@ -56,8 +56,8 @@ export default class Pattern extends React.Component {
              src="https://code.jquery.com/jquery-1.12.4.min.js"
              integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
              crossorigin="anonymous"></script>
-             <script src="` + this.props.data.patternDependancy + `">
-             <script type="text/javascript"> ` +this.props.data.patternScript + ` 
+             <script src="` + this.props.data.patternJsDep + `"></script>
+             <script type="text/javascript"> ` + this.props.data.patternScript + ` </script>
            </body>
              </html>`;
 
@@ -65,23 +65,18 @@ export default class Pattern extends React.Component {
 
 
 
-    console.log('Html: ', content)
+    // console.log('Html: ', content)
     if (this.props.data.patternHtml) {
     let viewer  =  document.getElementById('patternViewer').contentWindow.document;
     viewer.write(content);
     }
-  }
-  setHtml() {
-    // TODO: Parse patternHTML to check against XSS attacks
-    this.state.html = this.props.data.html;
-    return { __html: this.props.data.html };
   }
 
   render() {
     // console.log("pattern Comp", this.props.data);
 
     return (
-      <div>
+      <div className="patternViewerWrap" >
         <iframe id="patternViewer" />
       </div>
     );

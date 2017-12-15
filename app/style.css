@@ -554,4 +554,21 @@ footer ul.social li a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.patternViewerWrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #555;
+  display: flex;
+  justify-content: center;
+  padding: 6em 4em;
+}
+.patternViewerWrap iframe {
+  width: 80%;
+  height: 80%;
+  min-width: 320px;
+  border: 4px solid #222;
+  border-radius: 30px;
+  background-color: #fff;
+}
 /*# sourceMappingURL=app/style.css.map */
