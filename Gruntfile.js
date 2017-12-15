@@ -55,7 +55,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 3000,
-        open: 'http://localhost:9000/interior.html',
+        open: 'http://localhost:3000/home.html',
         // Change this to '0.0.0.0' to access the server from outside
         hostname: '0.0.0.0'
       },

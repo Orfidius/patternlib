@@ -1,38 +1,6 @@
 import React from "react";
 
-// const scripts = `
-// // CAROUSEL LAYOUT 1
-// jQuery('.slideItem').wrapAll('<div class="slideItemWrapper"></div>');
-// jQuery('.slideItemWrapper').slick({
-//   infinite: true,
-//   prevArrow: '<span class="slick-arrow slick-prev fa fa-angle-left" aria-hidden="true"></span>',
-//   nextArrow: '<span class="slick-arrow slick-next fa fa-angle-right" aria-hidden="true"></span>',
-//   slidesToShow: 6,
-//   slidesToScroll: 1,
-//   responsive: [
-//     {
-//       breakpoint: 1024,
-//       settings: {
-//         slidesToShow: 4,
-//         slidesToScroll: 1
-//       }
-//     },
-//     {
-//       breakpoint: 600,
-//       settings: {
-//         slidesToShow: 2,
-//         slidesToScroll: 1
-//       }
-//     },
-//     {
-//       breakpoint: 480,
-//       settings: {
-//         slidesToShow: 1,
-//         slidesToScroll: 1
-//       }
-//     }
-//   ]
-// });`;
+
 
 export default class Pattern extends React.Component {
   constructor(props) {
@@ -47,15 +15,21 @@ export default class Pattern extends React.Component {
     let content = `<!DOCTYPE html>
            <html>
           <head>
-          <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-            <title>Pattern</title><style>` + this.props.data.patternStyles + `</style>
-            
+          <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+          <link rel="stylesheet" href="`+ this.props.data.patternCssDep +`" >
+            <title>Pattern</title><style>`+ this.props.data.patternStyles + `</style>
+            <script src="https://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"></script>
+            <script>
+              $.noConflict();
+            </script>
             </head>
-             <body>` + this.props.data.patternHtml + `
-             <script
-             src="https://code.jquery.com/jquery-1.12.4.min.js"
-             integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-             crossorigin="anonymous"></script>
+             <body>
+             <div class="">
+             
+             ` + this.props.data.patternHtml + `
+             </div>
+      
              <script src="` + this.props.data.patternJsDep + `"></script>
              <script type="text/javascript"> ` + this.props.data.patternScript + ` </script>
            </body>

@@ -23,10 +23,9 @@ export default class Jsongenerator extends React.Component {
     event.preventDefault();
     console.log("json", this.props.data);
     if (this.props.data) {
-      let newData = []; // After the data object contains the correct array, we'll add it here
+      let newData = this.props.data; // After the data object contains the correct array, we'll add it here
       newData.push(this.data);
       let generated = JSON.stringify(newData);
-      console.log(generated);
       let generatedFile = new File([generated], "pattern.json", {
         type: "JSON"
       });
