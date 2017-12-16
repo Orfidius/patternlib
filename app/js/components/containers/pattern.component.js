@@ -8,7 +8,8 @@ export default class Pattern extends React.Component {
 
     this.state = { data: this.props.data };
   }
-
+/* TODO:
+Add support for a list that switches between container-fluid and container as a div wrapper */ 
  
   componentDidUpdate(prevProps, prevState) {
 
@@ -47,7 +48,7 @@ export default class Pattern extends React.Component {
   }
 
   render() {
-    // console.log("pattern Comp", this.props.data);
+      //TODO: Add Mobile buttons and refresh buttons
 
     return (
       <div className="patternViewerWrap" >

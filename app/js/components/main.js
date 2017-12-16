@@ -3,6 +3,7 @@ import ReactRouter from "react-router";
 
 import Pattern from "./containers/pattern.component";
 import Jsongenerator from "./containers/jsonGenerator.component.js";
+import Header from "./containers/header.component";
 
 class Main extends React.Component {
   constructor(props) {
@@ -30,8 +31,7 @@ class Main extends React.Component {
       showGen: "closed"
     };
 
-
-  // Function Bindings
+    // Function Bindings
     this.showJsonGenerator = this.showJsonGenerator.bind(this);
   }
 
@@ -50,10 +50,14 @@ class Main extends React.Component {
 
     return (
       <div>
-        <Pattern className="container" data={this.state.data[1]} /> 
-        <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />        
+        <Header />
+        <Pattern className="container" data={this.state.data[1]} />
+        <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />
         <div className="openJsonButton" onClick={this.showJsonGenerator}>
           <i className="fa fa-chevron-circle-up" aria-hidden="true" />
+        </div>
+        <div className="openPatternInfo">
+          <i class="fa fa-file-code-o" aria-hidden="true" />
         </div>
       </div>
     );

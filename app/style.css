@@ -208,19 +208,62 @@ img[src="/images/icons/v2/bomb.png"] {
     width: 100%;
   }
 }
-/* HEAD ELEMENTS
----------------------------------------------*/
-.structHead {
-  float: left;
-  width: 100%;
-  background: #ccc;
-  padding: 1em 0;
+.openPatternInfo {
+  display: block;
+  background-color: #ef6653;
+  position: fixed;
+  top: 30%;
+  z-index: 999;
+  padding: 1em 0.5em 1em 0.5em;
+  font-size: 30px;
+  color: #fff;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
 }
-#inner-wrap .headLogo img {
+.openJsonButton {
+  position: fixed;
+  bottom: 0;
+  padding: 15px;
+  cursor: pointer;
+  right: 10%;
+  font-size: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #41a6e2;
+  color: #fff;
+}
+.appHead {
+  display: flex;
+  background: #000;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 3em;
+  flex-grow: 1;
+  max-height: 60px;
+}
+.appHead .logo {
+  flex-grow: 1;
+}
+.appHead .logo img {
+  max-width: 150px;
+}
+.appHead .search {
+  position: relative;
   max-width: 200px;
 }
-#nav {
-  display: none;
+.appHead .search input {
+  min-width: 200px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  height: 100%;
+}
+.appHead .search .searchButton {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: #000;
 }
 /* BODY ELEMENTS
 ---------------------------------------------*/
@@ -369,18 +412,6 @@ footer ul.social li a {
     -o-transform: translate3d(-30%, 0, 0);
     transform: translate3d(-30%, 0, 0);
   }
-}
-.openJsonButton {
-  position: fixed;
-  bottom: 0;
-  padding: 15px;
-  cursor: pointer;
-  right: 10%;
-  font-size: 30px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color: #222;
-  color: #fff;
 }
 .jsonGenerator {
   position: fixed;

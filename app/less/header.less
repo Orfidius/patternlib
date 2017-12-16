@@ -1,9 +1,17 @@
-/* HEAD ELEMENTS
----------------------------------------------*/
-.structHead{float:left; width:100%; background: @light-grey; padding:1em 0;}
-	
-#inner-wrap .headLogo {
-    img { max-width: 200px;}
+.appHead {
+    display:flex; 
+    background: #000;
+    flex-direction: row; 
+    justify-content: space-between;;
+    padding: 1em 3em; 
+    flex-grow: 1;
+    max-height: 60px;
+    .logo { flex-grow: 1;
+        img { max-width: 150px;}
+    }
+
+    .search { position: relative; max-width: 200px;
+        input { min-width: 200px; padding: 5px 10px; border-radius: 10px; border: none; height: 100%;}
+        .searchButton { position: absolute; top: 5px; right: 20px; color: #000; }
+    }
 }
-	
-#nav{display:none;}
