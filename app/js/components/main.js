@@ -57,7 +57,7 @@ class Main extends React.Component {
           <i className="fa fa-chevron-circle-up" aria-hidden="true" />
         </div>
         <div className="openPatternInfo">
-          <i class="fa fa-file-code-o" aria-hidden="true" />
+          <i className="fa fa-file-code-o" aria-hidden="true" />
         </div>
       </div>
     );

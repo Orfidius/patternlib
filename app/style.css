@@ -265,6 +265,18 @@ img[src="/images/icons/v2/bomb.png"] {
   right: 20px;
   color: #000;
 }
+.searchResults {
+  width: 100%;
+  display: flex;
+  background-color: #222;
+  border-bottom: #aaa;
+  min-height: 200px;
+  z-index: 999;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  color: #fff;
+}
 /* BODY ELEMENTS
 ---------------------------------------------*/
 .structBody {

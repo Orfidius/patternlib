@@ -1,5 +1,5 @@
 import React from 'react'; 
-
+import SearchResults from './searchResults.component';
 
 export default class Header extends React.Component { 
 
@@ -22,7 +22,8 @@ export default class Header extends React.Component {
                     <input name="searchText" id="searchText" type="text" />
                     <a href="#" className="searchButton" id="searchButton"> <i className="fa fa-search" aria-hidden="true"></i> </a>
                 </div>
-
+                <SearchResults />
+                
             </div> 
 
         );
