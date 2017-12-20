@@ -139,7 +139,7 @@ img.outline {
 }
 .Error,
 .error {
-  width: auto!important;
+  width: auto !important;
 }
 img[src="/images/icons/v2/common/brick_edit.gif"],
 img[src="/images/icons/v2/common/delete.gif"],
@@ -147,11 +147,11 @@ img[src="/images/icons/v2/common/arrow_out.gif"],
 img[src="/images/e.gif"],
 img[src="/images/spacer.gif"],
 img[src="/images/icons/v2/bomb.png"] {
-  border: 0!important;
-  padding: 0!important;
-  margin: 0!important;
-  float: none!important;
-  width: 16px!important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: none !important;
+  width: 16px !important;
   height: 16px !important;
 }
 #inner-wrap img {
@@ -232,6 +232,12 @@ img[src="/images/icons/v2/bomb.png"] {
   border-top-right-radius: 20px;
   background-color: #41a6e2;
   color: #fff;
+}
+.null {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
 }
 .appHead {
   display: flex;

@@ -2,6 +2,8 @@
   {
     "patternName": "countdown",
     "patternTags": "countdown, blueprint",
+    "patternAuthor": "Blueprint ",
+    "patternDescription": "Countdown module form the blueprint templates",
     "patternHtml":
       "<section class=\"imod-countdown-1 sectionRow\" data-sectionName=\"countdown-1\">\n\t<div class=\"container\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 sectionHeader\" id=\"ContentMiddleLayoutCtDn1Hdr\" runat=\"server\">\n\t\t\t\t<h3>Get Ready for 9/15/16</h3>\n                <h2>Day of Giving Countdown Clock</h2>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 sectionContent\" id=\"ContentMiddleLayoutCtDn1\" runat=\"server\">\n\t\t\t\t<div class=\"countdownWidget\" data-start=\"2016/9/9 12:30:00\" data-end=\"2016/11/30 11:59:00\" data-timezone=\"-5\">&nbsp;</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>\n",
     "b kjb":
