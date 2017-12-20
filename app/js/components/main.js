@@ -50,7 +50,7 @@ class Main extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header data={this.state.data} />
         <Pattern className="container" data={this.state.data[1]} />
         <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />
         <div className="openJsonButton" onClick={this.showJsonGenerator}>
