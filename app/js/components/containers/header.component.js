@@ -9,47 +9,57 @@ export default class Header extends React.Component {
     };
     this.updateQuery = this.updateQuery.bind(this);
   }
-  componentWillUpdate() {
-
-  }
+  componentWillUpdate() {}
 
   updateQuery(event) {
-    if (this.props.data) {
-      let query = event.target.value;
+    if (this.props.data && event.target.value.length > 1) {
+      let query =
+        event.target.value.trim() != "" || event.target.value.trim() != " "
+          ? event.target.value.trim()
+          : 0;
       let found = false;
-      let searchResults = this.props.data.filter(currentValue => {
-        // Variable Test List"
-        // patternName
-        // patternTags
-        // patternAuthor
-        // patternDescription
+      console.log(query);
+      if (query != 0) {
+        let searchResults = this.props.data.filter(currentValue => {
+          // Variable Test List"
+          // patternName
+          // patternTags
+          // patternAuthor
+          // patternDescription
 
-        // console.log(currentValue);
-        let addReject = false;
+          // console.log(currentValue);
+          let addReject = false;
+          console.log("Query: ", query);
 
-        if (currentValue.patternName.search(query) > -1) {
-          addReject = true;
-          console.log("pattern Name");
-        }
-        if (currentValue.patternTags.search(query) > -1) {
-          addReject = true;
-          console.log("Pattern Tags");
-        }
-        if (currentValue.patternAuthor.search(query) > -1) {
-          addReject = true;
-          console.log("pattern Author");
-        }
-        if (currentValue.patternDescription.search(query) > -1) {
-          addReject = true;
-          console.log("pattern Description");
-        }
+          if (currentValue.patternName.search(query) > -1) {
+            addReject = true;
+            console.log("pattern Name");
+          }
+          if (currentValue.patternTags.search(query) > -1) {
+            addReject = true;
+            console.log("Pattern Tags");
+          }
+          if (currentValue.patternAuthor.search(query) > -1) {
+            addReject = true;
+            console.log("pattern Author");
+          }
+          if (currentValue.patternDescription.search(query) > -1) {
+            addReject = true;
+            console.log("pattern Description");
+          }
 
-        return addReject;
-      });
-      if (searchResults) {
-        console.log("search Results: ", searchResults);
+          return addReject;
+        });
+
+        if (searchResults) {
+          console.log("search Results: ", searchResults.length);
+        }
+        this.setState({ searchResults: searchResults });
+      } else {
+        this.setState({ searchResults: [] });
       }
-      this.setState({ searchResults: searchResults });
+    } else {
+      this.setState({ searchResults: [] });
     }
   }
 
@@ -65,6 +75,7 @@ export default class Header extends React.Component {
             name="searchText"
             id="searchText"
             onChange={this.updateQuery}
+            onBlur={this.updateQuery}
             type="text"
           />
           <a href="#" className="searchButton" id="searchButton">
@@ -72,7 +83,7 @@ export default class Header extends React.Component {
             <i className="fa fa-search" aria-hidden="true" />{" "}
           </a>
         </div>
-        <SearchResults results={this.state.searchResults}  />
+        <SearchResults updatePattern={this.props.updatePattern} results={this.state.searchResults} />
       </div>
     );
   }

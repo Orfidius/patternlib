@@ -28,13 +28,20 @@ class Main extends React.Component {
     //set state
     this.state = {
       data: {},
-      showGen: "closed"
+      showGen: "closed",
+      currentPattern: {}
     };
 
     // Function Bindings
     this.showJsonGenerator = this.showJsonGenerator.bind(this);
+    this.updateCurrentPattern = this.updateCurrentPattern.bind(this);
   }
 
+
+  updateCurrentPattern (newPattern) {
+    console.log("Updating Current Pattern");
+      this.setState({currentPattern: newPattern});
+  }
   showJsonGenerator(event) {
     console.log("Show Json Clicked");
     if (this.state.showGen == "closed") {
@@ -50,8 +57,8 @@ class Main extends React.Component {
 
     return (
       <div>
-        <Header data={this.state.data} />
-        <Pattern className="container" data={this.state.data[1]} />
+        <Header updatePattern={this.updateCurrentPattern} data={this.state.data} />
+        <Pattern className="container" data={this.state.currentPattern} />
         <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />
         <div className="openJsonButton" onClick={this.showJsonGenerator}>
           <i className="fa fa-chevron-circle-up" aria-hidden="true" />
