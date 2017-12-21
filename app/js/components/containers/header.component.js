@@ -65,7 +65,8 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid appHead">
+      <div className="container-fluid appHeadWrap">
+      <div className="row appHead">
         <div className="logo">
           <img src="images/logo.png" />
         </div>
@@ -82,6 +83,7 @@ export default class Header extends React.Component {
             {" "}
             <i className="fa fa-search" aria-hidden="true" />{" "}
           </a>
+        </div>
         </div>
         <SearchResults updatePattern={this.props.updatePattern} results={this.state.searchResults} />
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import ReactRouter from "react-router";
 
 import Pattern from "./containers/pattern.component";
-import Jsongenerator from "./containers/jsonGenerator.component.js";
+import Jsongenerator from "./containers/jsonGenerator/jsonGenerator.component.js";
 import Header from "./containers/header.component";
 
 class Main extends React.Component {

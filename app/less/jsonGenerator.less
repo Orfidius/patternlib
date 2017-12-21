@@ -4,10 +4,11 @@
     &.open {  bottom: 10%;}
     &.closed { bottom: -100%;}
   position: fixed;
-  left: 10%;
+  left: calc(~"50% - 700px");
   width: 80%;
   height: auto;
   min-height: 80%;
+  max-width: 1400px;
   background-color: #41a6e2;
   color: #fff;
   display: flex;
@@ -15,6 +16,7 @@
   padding: 40px;
   border-radius: 50px;
   transition: all 700ms ease-out;
+  z-index: 999999;
   .jsonHeader {
     width: 100%;
     h2 {

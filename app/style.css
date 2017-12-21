@@ -239,7 +239,7 @@ img[src="/images/icons/v2/bomb.png"] {
   width: auto;
   height: auto;
 }
-.appHead {
+.appHeadWrap .appHead {
   display: flex;
   background: #000;
   flex-direction: row;
@@ -250,47 +250,47 @@ img[src="/images/icons/v2/bomb.png"] {
   position: relative;
   z-index: 999;
 }
-.appHead .logo {
+.appHeadWrap .appHead .logo {
   flex-grow: 1;
 }
-.appHead .logo img {
+.appHeadWrap .appHead .logo img {
   max-width: 150px;
 }
-.appHead .search {
+.appHeadWrap .appHead .search {
   position: relative;
   max-width: 200px;
 }
-.appHead .search input {
+.appHeadWrap .appHead .search input {
   min-width: 200px;
   padding: 5px 10px;
   border-radius: 10px;
   border: none;
   height: 100%;
 }
-.appHead .search .searchButton {
+.appHeadWrap .appHead .search .searchButton {
   position: absolute;
   top: 5px;
   right: 20px;
   color: #000;
 }
-.appHead .searchResults {
+.appHeadWrap .searchResults {
   width: 100%;
   display: flex;
-  background-color: #222;
-  border-bottom: #aaa;
+  background-color: rgba(33, 33, 33, 0.25);
+  border-bottom: 2px solid #aaa;
   min-height: 200px;
-  z-index: 999;
+  z-index: 2;
   position: absolute;
   top: 60px;
   left: 0;
   color: #fff;
-  transition: all 400ms;
+  transition: all 700ms;
 }
-.appHead .searchResults.closed {
+.appHeadWrap .searchResults.closed {
   opacity: 0;
-  top: -500%;
+  top: -100%;
 }
-.appHead .searchResults.open {
+.appHeadWrap .searchResults.open {
   opacity: 1;
   top: 60px;
 }
@@ -444,10 +444,11 @@ footer ul.social li a {
 }
 .jsonGenerator {
   position: fixed;
-  left: 10%;
+  left: calc(50% - 700px);
   width: 80%;
   height: auto;
   min-height: 80%;
+  max-width: 1400px;
   background-color: #41a6e2;
   color: #fff;
   display: flex;
@@ -455,6 +456,7 @@ footer ul.social li a {
   padding: 40px;
   border-radius: 50px;
   transition: all 700ms ease-out;
+  z-index: 999999;
 }
 .jsonGenerator.open {
   bottom: 10%;

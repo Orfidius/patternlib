@@ -1,6 +1,12 @@
 import file from "file-saver";
 import React from "react";
 
+// Components: 
+import Dependancies from './dependancies.component';
+import Meta from './meta.component';
+import PatternData from './patternData.component';
+
+
 export default class Jsongenerator extends React.Component {
   constructor(props) {
     super(props);
