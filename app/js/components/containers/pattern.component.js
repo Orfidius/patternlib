@@ -41,6 +41,7 @@ Add support for a list that switches between container-fluid and container as a 
     if (this.props.data.patternHtml) {
       let viewer = document.getElementById("patternViewer");
       viewer.contentWindow.document.close();
+      //TODO: add a set timeout or some sorto of debounce so the user can't spam a result click and cause an error 
       viewer.contentWindow.document.write(content);
     }
   }
