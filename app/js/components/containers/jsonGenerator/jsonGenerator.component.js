@@ -1,11 +1,11 @@
 import file from "file-saver";
 import React from "react";
 
-// Components: 
-import Dependancies from './dependancies.component';
-import Meta from './meta.component';
-import PatternData from './patternData.component';
+// Components:
 
+import Dependancies from "./dependancies.component";
+import Meta from "./meta.component";
+import PatternData from "./patternData.component";
 
 export default class Jsongenerator extends React.Component {
   constructor(props) {
@@ -41,19 +41,19 @@ export default class Jsongenerator extends React.Component {
 
   switchPage(event) {
     event.preventDefault();
-    console.log('Switching Pages: ', this.state.curIndex);
+    console.log("Switching Pages: ", this.state.curIndex);
     let type = event.target.dataset.type;
     if (this.state.curIndex > 0 && this.state.curIndex < 4) {
       // console.log("inside curPane conditional");
       // console.log('type', type);
-      let newIndex = 1;      
+      let newIndex = 1;
 
       if (type == "previous") {
-         newIndex = (this.state.curIndex - 1);
+        newIndex = this.state.curIndex - 1;
       }
       if (type == "next") {
         // console.log('inside of next conditional');
-         newIndex = (this.state.curIndex + 1);
+        newIndex = this.state.curIndex + 1;
       }
       // console.log(newIndex);
       switch (newIndex) {
@@ -85,7 +85,9 @@ export default class Jsongenerator extends React.Component {
   render() {
     return (
       <div
-        className={"jsonGenerator " + this.props.isOpen + " " + this.state.curPane}
+        className={
+          "jsonGenerator " + this.props.isOpen + " " + this.state.curPane
+        }
       >
         <div className="jsonHeader">
           <h2> Data Generator </h2>
@@ -97,130 +99,22 @@ export default class Jsongenerator extends React.Component {
           <span>3</span>
         </div>
         <form id="jsonGen">
-          <div id="jsonMeta" className="pane jsonMeta">
-            <div className="inputgroup">
-              <label htmlFor="patternName">Name</label>
-              <input
-                type="text"
-                name="patternName"
-                id="patternName"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label htmlFor="patternTags">tags</label>
-              <input
-                type="text"
-                name="patterntTags"
-                id="patternTags"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label htmlFor="patternAuthor">Author</label>
-              <input
-                type="text"
-                name="patterntAuthor"
-                id="patternAuthor"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label htmlFor="patternExample">Site Example URL</label>
-              <input
-                type="text"
-                name="patterntExample"
-                id="patternExample"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup patternDescWrap">
-              <label htmlFor="patternDescription">Description</label>
-              <textarea
-                name="patterntDescription"
-                id="patternDescription"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="paneButton">
-              <button onClick={this.switchPage} data-type="previous" className="previous">
-                Previous
-              </button>
-              <button className="preview">Preview</button>
-              <button  onClick={this.switchPage} data-type="next" className="next">
-                next
-              </button>
-            </div>
-          </div>
-
-          <div id="jsonElements" className="pane jsonElements">
-            <div className="inputgroup">
-              <label>styles</label>
-              <textarea
-                id="patternStyles"
-                name="patternStyles"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label>Html</label>
-              <textarea
-                id="patternHtml"
-                name="patternHtml"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label>Java Script</label>
-              <textarea
-                id="patternScript"
-                name="patternScript"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="paneButton">
-              <button onClick={this.switchPage} data-type="previous" className="previous">
-                Previous
-              </button>
-              <button className="preview">Preview</button>
-              <button onClick={this.switchPage} data-type="next" className="next">
-                next
-              </button>
-            </div>
-          </div>
-          <div id="jsonDependancies" className="pane jsonDependancies">
-            <div className="inputgroup">
-              <label>Javascript</label>
-              <input
-                type="text"
-                id="patternJsDep"
-                name="patternJsDep"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label>Css</label>
-              <input
-                type="text"
-                id="patternCssDep"
-                name="patternCssDep"
-                onChange={this.updateData}
-              />
-            </div>
-            <div className="inputgroup">
-              <p> Jquery and Bootstrap added by default </p>
-            </div>
-            <div className="paneButton">
-              <button onClick={this.switchPage} data-type="previous" className="previous">
-                Previous
-              </button>
-              <button className="preview">
-                Preview
-              </button>
-              <button onClick={this.generateJson} data-type="next" className="next">
-                Generate
-              </button>
-            </div>
+          <Meta updateFormData={this.updateData} />
+          <PatternData updateFormData={this.updateData} />
+          <Dependancies updateFormData={this.updateData} />
+          <div className="paneButton">
+            <button
+              onClick={this.switchPage}
+              data-type="previous"
+              className="previous"
+            >
+              Previous
+            </button>
+            <button className="preview">Preview</button>
+            <button onClick={this.switchPage} data-type="next" className="next">
+              next
+            </button>
+            <button className="next" onClick={this.generateJson}>Generate</button>
           </div>
         </form>
       </div>

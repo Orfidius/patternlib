@@ -115,46 +115,46 @@
       }
     }
 
-    .paneButton {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding-top: 20px;
-      margin-top: 30px;
-      border-top: 1px dotted #fff;
-      button {
-        background-color: @red;
-        color: #fff;
-        border-radius: 30px;
+  }
 
-        padding: 5px 50px;
-        text-align: center;
-        transition: all 400ms ease;
-        border: none;
+  .paneButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 1px dotted #fff;
+    button {
+      background-color: @red;
+      color: #fff;
+      border-radius: 30px;
+
+      padding: 5px 50px;
+      text-align: center;
+      transition: all 400ms ease;
+      border: none;
+      &:hover {
+        color: @red;
+        background-color: #fff;
+      }
+      &.next {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      &.preview {
+        background-color: @green;
+        margin-right: 3px;
+        margin-left: 3px;
+        border-radius: 0;
         &:hover {
-          color: @red;
           background-color: #fff;
+          color: @green;
         }
-        &.next {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-        &.preview {
-          background-color: @green;
-          margin-right: 3px;
-          margin-left: 3px;
-          border-radius: 0;
-          &:hover {
-            background-color: #fff;
-            color: @green;
-          }
-        }
-        &.previous {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
+      }
+      &.previous {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
   }
-
 }

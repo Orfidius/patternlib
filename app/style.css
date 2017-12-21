@@ -577,7 +577,7 @@ footer ul.social li a {
   border-top-right-radius: 20px;
   margin-bottom: 0;
 }
-.jsonGenerator .pane .paneButton {
+.jsonGenerator .paneButton {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -585,7 +585,7 @@ footer ul.social li a {
   margin-top: 30px;
   border-top: 1px dotted #fff;
 }
-.jsonGenerator .pane .paneButton button {
+.jsonGenerator .paneButton button {
   background-color: #ef6653;
   color: #fff;
   border-radius: 30px;
@@ -594,25 +594,25 @@ footer ul.social li a {
   transition: all 400ms ease;
   border: none;
 }
-.jsonGenerator .pane .paneButton button:hover {
+.jsonGenerator .paneButton button:hover {
   color: #ef6653;
   background-color: #fff;
 }
-.jsonGenerator .pane .paneButton button.next {
+.jsonGenerator .paneButton button.next {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.jsonGenerator .pane .paneButton button.preview {
+.jsonGenerator .paneButton button.preview {
   background-color: #87c952;
   margin-right: 3px;
   margin-left: 3px;
   border-radius: 0;
 }
-.jsonGenerator .pane .paneButton button.preview:hover {
+.jsonGenerator .paneButton button.preview:hover {
   background-color: #fff;
   color: #87c952;
 }
-.jsonGenerator .pane .paneButton button.previous {
+.jsonGenerator .paneButton button.previous {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
