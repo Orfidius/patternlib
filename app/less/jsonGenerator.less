@@ -4,8 +4,8 @@
     &.open {  bottom: 10%;}
     &.closed { bottom: -100%;}
   position: fixed;
-  left: calc(~"50% - 700px");
-  width: 80%;
+  left: 20vw;
+  width: 60vw;
   height: auto;
   min-height: 80%;
   max-width: 1400px;
@@ -17,9 +17,9 @@
   border-radius: 50px;
   transition: all 700ms ease-out;
   z-index: 999999;
-  .jsonHeader {
+  .jsonHeader, .section-header {
     width: 100%;
-    h2 {
+    h2, h3 {
       text-align: center;
     }
     .fa.fa-times-circle {
@@ -32,7 +32,7 @@
   }
   &.meta .jsonMeta.pane { display: flex; opacity: 1; transition: all 1s;
   }
-  &.elements .jsonElements.pane { display: flex; opacity: 1; transition: all 1s;
+  &.elements .jsonElements.pane { display: flex; opacity: 1; transition: all 1s; flex-direction: column;
   }
   &.dependancies .jsonDependancies.pane { display: flex; opacity: 1; transition: all 1s;
   }
@@ -45,7 +45,7 @@
     opacity: 0;
     transition: all 1s;
     .inputgroup {
-      width: 33.33%;
+      // width: 33.33%;
       min-width: 300px;
       padding: 10px 15px 5px;
       flex-grow: 1;
@@ -79,6 +79,7 @@
     &.jsonMeta, &.jsonDependancies  { 
       max-width: 1200px;
       margin: 0 auto;
+      flex-direction: column;
       .inputgroup {
         width: 100%;
         display: flex;
@@ -156,5 +157,33 @@
         border-bottom-right-radius: 0;
       }
     }
+  }
+}
+
+
+.tabsSelect {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
+  transition: all 400ms; 
+  cursor: pointer;
+  span {
+    display: block;
+    padding: 10px 20px;
+    background-color: @green; 
+    &:first-child {
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      margin-right: 2px;
+    }
+    &:last-child {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    &:hover {background-color: #fff;color: @green; }
+  }
+  .selected {
+    background: #fff;
+    color: @green;
   }
 }

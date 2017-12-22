@@ -7,6 +7,7 @@ import Dependancies from "./dependancies.component";
 import Meta from "./meta.component";
 import PatternData from "./patternData.component";
 
+
 export default class Jsongenerator extends React.Component {
   constructor(props) {
     super(props);
@@ -99,9 +100,11 @@ export default class Jsongenerator extends React.Component {
           <span>3</span>
         </div>
         <form id="jsonGen">
+          
           <Meta updateFormData={this.updateData} />
           <PatternData updateFormData={this.updateData} />
           <Dependancies updateFormData={this.updateData} />
+
           <div className="paneButton">
             <button
               onClick={this.switchPage}
