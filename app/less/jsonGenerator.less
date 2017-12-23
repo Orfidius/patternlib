@@ -1,8 +1,10 @@
-
-
 .jsonGenerator {
-    &.open {  bottom: 10%;}
-    &.closed { bottom: -100%;}
+  &.open {
+    bottom: 10%;
+  }
+  &.closed {
+    bottom: -100%;
+  }
   position: fixed;
   left: 20vw;
   width: 60vw;
@@ -17,24 +19,36 @@
   border-radius: 50px;
   transition: all 700ms ease-out;
   z-index: 999999;
-  .jsonHeader, .section-header {
+  .jsonHeader,
+  .section-header {
     width: 100%;
-    h2, h3 {
+    h2,
+    h3 {
       text-align: center;
     }
     .fa.fa-times-circle {
-        font-size: 24px; 
-        position: absolute; 
-        top: 20px; 
-        right: 20px;
-        cursor: pointer;
+      font-size: 24px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
     }
   }
-  &.meta .jsonMeta.pane { display: flex; opacity: 1; transition: all 1s;
+  &.meta .jsonMeta.pane {
+    display: flex;
+    opacity: 1;
+    transition: all 1s;
   }
-  &.elements .jsonElements.pane { display: flex; opacity: 1; transition: all 1s; flex-direction: column;
+  &.elements .jsonElements.pane {
+    display: flex;
+    opacity: 1;
+    transition: all 1s;
+    flex-direction: column;
   }
-  &.dependancies .jsonDependancies.pane { display: flex; opacity: 1; transition: all 1s;
+  &.dependancies .jsonDependancies.pane {
+    display: flex;
+    opacity: 1;
+    transition: all 1s;
   }
 
   .pane {
@@ -76,7 +90,8 @@
         width: 100%;
       }
     }
-    &.jsonMeta, &.jsonDependancies  { 
+    &.jsonMeta,
+    &.jsonDependancies {
       max-width: 1200px;
       margin: 0 auto;
       flex-direction: column;
@@ -90,8 +105,8 @@
           border-bottom-left-radius: 20px;
           border-bottom-right-radius: 0;
           border-top-right-radius: 0;
-          max-width: 200px;
-          min-width: 100px;          
+          // max-width: 200px;
+          min-width: 100px;
         }
         input {
           width: 70%;
@@ -108,14 +123,13 @@
         flex-direction: column;
         label {
           width: 30%;
-          border-bottom-left-radius: 0px;          
+          border-bottom-left-radius: 0px;
           border-bottom-right-radius: 0px;
           border-top-right-radius: 20px;
           margin-bottom: 0;
         }
       }
     }
-
   }
 
   .paneButton {
@@ -160,17 +174,16 @@
   }
 }
 
-
 .tabsSelect {
-  display: flex; 
-  flex-direction: row; 
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  transition: all 400ms; 
+  transition: all 400ms;
   cursor: pointer;
   span {
     display: block;
     padding: 10px 20px;
-    background-color: @green; 
+    background-color: @green;
     &:first-child {
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
@@ -180,10 +193,51 @@
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
     }
-    &:hover {background-color: #fff;color: @green; }
+    &:hover {
+      background-color: #fff;
+      color: @green;
+    }
   }
   .selected {
     background: #fff;
     color: @green;
+  }
+}
+
+.inputgroupWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .inputgroup.dependancy {
+    position: relative;
+    .dependancyInput {
+      position: realitve;
+      z-index: 99;
+    }
+  }
+  .addInput {
+    display: flex;
+    transition: all 400ms;
+    font-size: 30px;
+    position: absolute;
+    right: -35px;
+    bottom: 15px;
+    width: 80px;
+    height: 45px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: @green;
+
+    cursor: pointer;
+    &:hover {
+      right: -25px;
+      background-color: #fff;
+      color: @green;
+    }
   }
 }

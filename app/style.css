@@ -556,7 +556,6 @@ footer ul.social li a {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
-  max-width: 200px;
   min-width: 100px;
 }
 .jsonGenerator .pane.jsonMeta .inputgroup input,
@@ -649,6 +648,40 @@ footer ul.social li a {
 }
 .tabsSelect .selected {
   background: #fff;
+  color: #87c952;
+}
+.inputgroupWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.inputgroupWrap .inputgroup.dependancy {
+  position: relative;
+}
+.inputgroupWrap .inputgroup.dependancy .dependancyInput {
+  position: realitve;
+  z-index: 99;
+}
+.inputgroupWrap .addInput {
+  transition: all 400ms;
+  font-size: 30px;
+  position: absolute;
+  right: -35px;
+  bottom: 15px;
+  width: 80px;
+  height: 45px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #87c952;
+  cursor: pointer;
+}
+.inputgroupWrap .addInput:hover {
+  right: -25px;
+  background-color: #fff;
   color: #87c952;
 }
 .patternViewerWrap {

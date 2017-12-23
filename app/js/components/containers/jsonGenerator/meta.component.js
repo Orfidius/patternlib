@@ -51,7 +51,7 @@ export default class Meta extends React.Component {
           <span onClick={this.tabClick} data-target="meta" className={this.state.metaTab} >About..</span>
           <span onClick={this.tabClick} data-target="desc" className={this.state.descTab}>Description</span>
         </div>
-        <div className={"tabWrap "}>
+        <div className="tabWrap ">
           <div className="tab1" id="tab1" style={this.state.isMeta}>
             <div className="inputgroup">
               <label htmlFor="patternName">Name</label>
