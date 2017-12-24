@@ -17,40 +17,21 @@ export default class Dependancies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isCss: selected,
       isJs: unselected,
+      JsNo: 1,
       jsTab: "selected",
+      isCss: selected,
       cssTab: "",
-      cssInput: (
-        <div className="inputgroup dependancy">
-          <label>Css</label>
-          <input
-            type="text"
-            id="patternCssDep"
-            name="patternCssDep"
-            onChange={this.updateData}
-            className="dependancyInput"
-          />
-        </div>
-      ),
-      jsInput: (
-        <div className="inputgroup dependancy">
-          <label>Javascript</label>
-          <input
-            type="text"
-            id="patternJsDep"
-            name="patternJsDep"
-            onChange={this.updateData}
-            className="dependancyInput"
-          />
-        </div>
-      )
+      cssNo: 1,
+      cssArray: ["patternCssDep1"],
+      jsArray: ["patternJsDep1"]
     };
     this.tabClick = this.tabClick.bind(this);
+    this.handleAddInput = this.handleAddInput.bind(this);
   }
 
   tabClick(e) {
-    if (e.target.dataset.target == "css") {
+    if (e.target.dataset.target === "css") {
       this.setState({
         isCss: selected,
         isJs: unselected,
@@ -59,13 +40,32 @@ export default class Dependancies extends React.Component {
       });
     }
 
-    if (e.target.dataset.target == "javascript") {
+    if (e.target.dataset.target === "javascript") {
       this.setState({
         isCss: unselected,
         isJs: selected,
         jsTab: "",
         cssTab: "selected"
       });
+    }
+  }
+
+  handleAddInput(e) {
+    let setCssArray = this.state.cssArray;
+    let setJsArray = this.state.jsArray;
+
+    console.log("Target data: ", e.target.dataset.target);
+
+    if (e.target.dataset.target === "css") {
+      let newCssNo = this.state.cssNo + 1;
+      setCssArray.push("patternCssDep" + newCssNo);
+      this.setState({ cssArray: setCssArray, cssNo: newCssNo });
+    }
+
+    if (e.target.dataset.target === "js") {
+      let newjsNo = this.state.JsNo + 1;
+      setJsArray.push("patternjsDep" + newjsNo);
+      this.setState({ jsArray: setJsArray, JsNo: newjsNo });
     }
   }
 
@@ -98,9 +98,30 @@ export default class Dependancies extends React.Component {
           data-target="css"
         >
           <div className="inputgroupWrap dependancy">
-            {this.state.cssInput}
-            <span class="addInput" id="addCssInput">
-              <i class="fa fa-plus-circle" aria-hidden="true" />{" "}
+            {this.state.cssArray.map((currentValue, index) => (
+              <div key={index} className="inputgroup dependancy">
+                <label>Css</label>
+                <input
+                  key={index}
+                  type="text"
+                  id={currentValue}
+                  name={currentValue}
+                  onChange={this.updateData}
+                  className="dependancyInput"
+                />
+              </div>
+            ))}
+            <span
+              onClick={this.handleAddInput}
+              className="addInput"
+              id="addCssInput"
+              data-target="css"
+            >
+              <i
+                data-target="css"
+                className="fa fa-plus-circle"
+                aria-hidden="true"
+              />{" "}
             </span>
           </div>
         </div>
@@ -111,9 +132,29 @@ export default class Dependancies extends React.Component {
           data-target="javascript"
         >
           <div className="inputgroupWrap dependancy">
-            {this.state.jsInput}
-            <span class="addInput" id="addJsInput">
-              <i class="fa fa-plus-circle" aria-hidden="true" />
+            {this.state.jsArray.map((currentValue, index) => (
+              <div key={index} className="inputgroup dependancy">
+                <label>Javascript</label>
+                <input
+                  type="text"
+                  id={currentValue}
+                  name={currentValue}
+                  onChange={this.updateData}
+                  className="dependancyInput"
+                />
+              </div>
+            ))}
+            <span
+              data-target="js"
+              onClick={this.handleAddInput}
+              className="addInput"
+              id="addJsInput"
+            >
+              <i
+                data-target="js"
+                className="fa fa-plus-circle"
+                aria-hidden="true"
+              />
             </span>
           </div>
         </div>
