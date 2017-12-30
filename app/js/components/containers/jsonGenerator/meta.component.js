@@ -25,9 +25,11 @@ export default class Meta extends React.Component {
       isMeta: selected, 
       isDesc: unselected,
       metaTab: "selected",
-      descTab: ""
+      descTab: "",
+      code: "// Enter Description or instructions here. Feel fre to use HTML!"
     }
     this.tabClick = this.tabClick.bind(this);
+    this.updateCode = this.updateCode.bind(this);
   }
 
   tabClick(e){
@@ -39,6 +41,10 @@ export default class Meta extends React.Component {
       if (e.target.dataset.target == "desc") {
         this.setState({isMeta: unselected, isDesc: selected, metaTab: "", descTab: "selected"});
       }
+  }
+  updateCode(instance, data, value) {
+    
+    this.props.codeUpdate("patterntDescription", value);
   }
 
   render() {
@@ -59,7 +65,7 @@ export default class Meta extends React.Component {
                 type="text"
                 name="patternName"
                 id="patternName"
-                onChange={this.updateData}
+                onChange={this.props.updateFormData}
               />
             </div>
             <div className="inputgroup">
@@ -68,7 +74,7 @@ export default class Meta extends React.Component {
                 type="text"
                 name="patterntTags"
                 id="patternTags"
-                onChange={this.updateData}
+                onChange={this.props.updateFormData}
               />
             </div>
             <div className="inputgroup">
@@ -77,7 +83,7 @@ export default class Meta extends React.Component {
                 type="text"
                 name="patterntAuthor"
                 id="patternAuthor"
-                onChange={this.updateData}
+                onChange={this.props.updateFormData}
               />
             </div>
             <div className="inputgroup">
@@ -86,7 +92,7 @@ export default class Meta extends React.Component {
                 type="text"
                 name="patterntExample"
                 id="patternExample"
-                onChange={this.updateData}
+                onChange={this.props.updateFormData}
               />
             </div>
           </div>
@@ -94,9 +100,10 @@ export default class Meta extends React.Component {
             <div className="inputgroup patternDescWrap">
               <label htmlFor="patternDescription">Description</label>
               <CodeMirror
+                value={this.state.code}
                 name="patterntDescription"
                 id="patternDescription"
-                onChange={this.updateData}
+                onChange={this.updateCode}
                 options={options}
               />
             </div>

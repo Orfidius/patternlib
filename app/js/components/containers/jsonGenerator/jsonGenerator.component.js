@@ -15,14 +15,21 @@ export default class Jsongenerator extends React.Component {
 
     //funciton bindings
     this.updateData = this.updateData.bind(this);
+    this.mirrorUpdateData = this.mirrorUpdateData.bind(this);
     this.generateJson = this.generateJson.bind(this);
     this.switchPage = this.switchPage.bind(this);
 
     this.state = { style: {}, open: false, curIndex: 1, curPane: "meta" };
+    
   }
 
   updateData(event) {
     this.data[event.target.id] = event.target.value;
+    console.log("Updated Data Object", this.data);
+  }
+
+  mirrorUpdateData(key, data) {
+    this.data[key] = data;
     console.log("Updated Data Object", this.data);
   }
 
@@ -101,7 +108,7 @@ export default class Jsongenerator extends React.Component {
         </div>
         <form id="jsonGen">
           
-          <Meta updateFormData={this.updateData} />
+          <Meta updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
           <PatternData updateFormData={this.updateData} />
           <Dependancies updateFormData={this.updateData} />
 
