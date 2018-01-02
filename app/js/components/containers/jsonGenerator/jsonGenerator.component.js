@@ -109,8 +109,8 @@ export default class Jsongenerator extends React.Component {
         <form id="jsonGen">
           
           <Meta updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
-          <PatternData updateFormData={this.updateData} />
-          <Dependancies updateFormData={this.updateData} />
+          <PatternData updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
+          <Dependancies updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
 
           <div className="paneButton">
             <button

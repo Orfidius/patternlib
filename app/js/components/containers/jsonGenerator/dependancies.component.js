@@ -50,6 +50,10 @@ export default class Dependancies extends React.Component {
     }
   }
 
+  updateCode(instance, data, value) {
+    this.props.codeUpdate("patterntDescription", value);
+  }
+  
   handleAddInput(e) {
     let setCssArray = this.state.cssArray;
     let setJsArray = this.state.jsArray;

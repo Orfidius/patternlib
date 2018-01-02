@@ -40,6 +40,9 @@ export default class Pattern extends React.Component {
     };
     this.tabClick = this.tabClick.bind(this);
     this.updateData = this.props.updateFormData;
+    this.updateCodeHtml = this.updateCodeHtml.bind(this);
+    this.updateCodeCss = this.updateCodeCss.bind(this);
+    this.updateCodeJs = this.updateCodeJs.bind(this);
   }
 
   tabClick(e) {
@@ -75,7 +78,15 @@ export default class Pattern extends React.Component {
       });
     }
   }
-
+  updateCodeHtml(instance, data, value) {
+    this.props.codeUpdate("patternHtml", value);
+  }
+  updateCodeCss(instance, data, value) {
+    this.props.codeUpdate("patternStyles", value);
+  }
+  updateCodeJs(instance, data, value) {
+    this.props.codeUpdate("patternScript", value);
+  }
   render() {
     return (
       <div id="jsonElements" className="pane jsonElements">
@@ -112,7 +123,7 @@ export default class Pattern extends React.Component {
               <CodeMirror
                 id="patternHtml"
                 name="patternHtml"
-                onChange={this.updateData}
+                onChange={this.updateCodeHtml}
                 options={options}
               />
             </div>
@@ -123,7 +134,7 @@ export default class Pattern extends React.Component {
               <CodeMirror
                 id="patternStyles"
                 name="patternStyles"
-                onChange={this.updateData}
+                onChange={this.updateCodeCss}
                 options={cssoptions}
               />
             </div>
@@ -134,7 +145,7 @@ export default class Pattern extends React.Component {
               <CodeMirror
                 id="patternScript"
                 name="patternScript"
-                onChange={this.updateData}
+                onChange={this.updateCodeJs}
                 options={jsoptions}
               />
             </div>
