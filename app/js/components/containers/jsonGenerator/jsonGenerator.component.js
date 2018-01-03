@@ -18,7 +18,7 @@ export default class Jsongenerator extends React.Component {
     this.mirrorUpdateData = this.mirrorUpdateData.bind(this);
     this.generateJson = this.generateJson.bind(this);
     this.switchPage = this.switchPage.bind(this);
-
+    this.childUpdateData = this.childUpdateData.bind(this);
     this.state = { style: {}, open: false, curIndex: 1, curPane: "meta" };
     
   }
@@ -26,6 +26,10 @@ export default class Jsongenerator extends React.Component {
   updateData(event) {
     this.data[event.target.id] = event.target.value;
     console.log("Updated Data Object", this.data);
+  }
+  childUpdateData(data) {
+    this.data[data.key] = data.values;
+    console.log("data with Dependancy Array: ", this.data);
   }
 
   mirrorUpdateData(key, data) {
@@ -110,7 +114,7 @@ export default class Jsongenerator extends React.Component {
           
           <Meta updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
           <PatternData updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
-          <Dependancies updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} />
+          <Dependancies updateFormData={this.updateData} codeUpdate={this.mirrorUpdateData} updateArray={this.childUpdateData}/>
 
           <div className="paneButton">
             <button

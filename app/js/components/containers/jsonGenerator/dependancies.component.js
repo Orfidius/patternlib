@@ -28,6 +28,7 @@ export default class Dependancies extends React.Component {
     };
     this.tabClick = this.tabClick.bind(this);
     this.handleAddInput = this.handleAddInput.bind(this);
+    this.saveDepArray = this.saveDepArray.bind(this);
   }
 
   tabClick(e) {
@@ -53,7 +54,7 @@ export default class Dependancies extends React.Component {
   updateCode(instance, data, value) {
     this.props.codeUpdate("patterntDescription", value);
   }
-  
+
   handleAddInput(e) {
     let setCssArray = this.state.cssArray;
     let setJsArray = this.state.jsArray;
@@ -68,9 +69,38 @@ export default class Dependancies extends React.Component {
 
     if (e.target.dataset.target === "js") {
       let newjsNo = this.state.JsNo + 1;
-      setJsArray.push("patternjsDep" + newjsNo);
+      setJsArray.push("patternJsDep" + newjsNo);
       this.setState({ jsArray: setJsArray, JsNo: newjsNo });
     }
+  }
+
+  saveDepArray(event) {
+      let classList = event.target.classList; 
+      let arrayName = ""; 
+      let search = "";
+      if (classList.contains("JSinput")) {
+        arrayName = "patternJsDep";
+        search = "JSinput";
+      }
+      if (classList.contains("CSSinput")) {
+        arrayName = "patternCssDep";
+        search = "CSSinput";
+        
+      }
+      let elements = document.getElementsByClassName(search); 
+      let data = []; 
+
+      console.log("elements type", elements);
+
+      Array.prototype.forEach.call(elements, (element) => {
+          data.push(element.value); 
+          
+      });
+
+       console.log("Array Name: ", arrayName);
+       let objectData = {key: arrayName, values: data };
+
+      this.props.updateArray(objectData);
   }
 
   render() {
@@ -110,8 +140,8 @@ export default class Dependancies extends React.Component {
                   type="text"
                   id={currentValue}
                   name={currentValue}
-                  onChange={this.updateData}
-                  className="dependancyInput"
+                  onChange={this.saveDepArray}
+                  className="dependancyInput CSSinput"
                 />
               </div>
             ))}
@@ -143,8 +173,8 @@ export default class Dependancies extends React.Component {
                   type="text"
                   id={currentValue}
                   name={currentValue}
-                  onChange={this.updateData}
-                  className="dependancyInput"
+                  onChange={this.saveDepArray}
+                  className="dependancyInput JSinput"
                 />
               </div>
             ))}
