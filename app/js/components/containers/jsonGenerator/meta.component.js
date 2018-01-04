@@ -44,7 +44,7 @@ export default class Meta extends React.Component {
   }
   updateCode(instance, data, value) {
     
-    this.props.codeUpdate("patterntDescription", value);
+    this.props.codeUpdate("patternDescription", value);
   }
 
   render() {
