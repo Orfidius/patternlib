@@ -21,6 +21,7 @@ class Main extends React.Component {
     });
     this.data.then(
       function(jsonData) {
+        console.log(jsonData);
         this.setState({ data: jsonData });
       }.bind(this)
     );
@@ -59,7 +60,7 @@ class Main extends React.Component {
       <div>
         <Header updatePattern={this.updateCurrentPattern} data={this.state.data} />
         <Pattern className="container" data={this.state.currentPattern} />
-        <Jsongenerator isOpen={this.state.showGen} data={this.state.data} />
+        <Jsongenerator isOpen={this.state.showGen} data={this.state.data} setPreview={this.updateCurrentPattern}  closeGen={this.showJsonGenerator}/>
         <div className="openJsonButton" onClick={this.showJsonGenerator}>
           <i className="fa fa-chevron-circle-up" aria-hidden="true" />
         </div>

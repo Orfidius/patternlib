@@ -31,19 +31,19 @@ export default class Header extends React.Component {
           let addReject = false;
           console.log("Query: ", query);
 
-          if (currentValue.patternName.search(query) > -1) {
+          if (currentValue.patternName.toLowerCase().search(query.toLowerCase()) > -1) {
             addReject = true;
             console.log("pattern Name");
           }
-          if (currentValue.patternTags.search(query) > -1) {
+          if (currentValue.patternTags.toLowerCase().search(query.toLowerCase()) > -1) {
             addReject = true;
             console.log("Pattern Tags");
           }
-          if (currentValue.patternAuthor.search(query) > -1) {
+          if (currentValue.patternAuthor.toLowerCase().search(query.toLowerCase()) > -1) {
             addReject = true;
             console.log("pattern Author");
           }
-          if (currentValue.patternDescription.search(query) > -1) {
+          if (currentValue.patternDescription.toLowerCase().search(query.toLowerCase()) > -1) {
             addReject = true;
             console.log("pattern Description");
           }

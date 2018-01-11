@@ -19,8 +19,9 @@ export default class Jsongenerator extends React.Component {
     this.generateJson = this.generateJson.bind(this);
     this.switchPage = this.switchPage.bind(this);
     this.childUpdateData = this.childUpdateData.bind(this);
-    this.state = { style: {}, open: false, curIndex: 1, curPane: "meta" };
+    this.handlePreview = this.handlePreview.bind(this);
     
+    this.state = { style: {}, open: false, curIndex: 1, curPane: "meta" };
   }
 
   updateData(event) {
@@ -93,6 +94,10 @@ export default class Jsongenerator extends React.Component {
       this.setState({ style: styleOpen, open: true });
     }
   }
+  handlePreview(e){ 
+    e.preventDefault();
+    this.props.setPreview(this.data); 
+  }
 
   render() {
     return (
@@ -103,7 +108,7 @@ export default class Jsongenerator extends React.Component {
       >
         <div className="jsonHeader">
           <h2> Data Generator </h2>
-          <i className="fa fa-times-circle" aria-hidden="true" />
+          <i onClick={this.props.closeGen} className="fa fa-times-circle" aria-hidden="true" />
         </div>
         <div className="activePaneNumber">
           <span>1</span>
@@ -124,7 +129,7 @@ export default class Jsongenerator extends React.Component {
             >
               Previous
             </button>
-            <button className="preview">Preview</button>
+            <button onClick={this.handlePreview} className="preview">Preview</button>
             <button onClick={this.switchPage} data-type="next" className="next">
               next
             </button>

@@ -6,6 +6,7 @@ export default class SearchResults extends React.Component {
 
     this.state = {
       searchData: this.props.results,
+      willClose: false
     };
 
     this.searchList = (
@@ -13,6 +14,7 @@ export default class SearchResults extends React.Component {
     );
     this.openClass = "closed";
     this.handleResultClick = this.handleResultClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
   }
 
   componentWillUpdate() {
@@ -23,13 +25,14 @@ export default class SearchResults extends React.Component {
           // patternDescription
 
     console.log('results', this.props.results);
-      if (this.props.results.length > 0) { 
+      if (this.props.results.length > 0 && !this.state.willClose) { 
            this.openClass="open";
            this.searchList = null;
            this.searchList = this.props.results.map(((currentValue, index ) => {
              return(<li onClick={this.handleResultClick} key={index} data-key={index}>{currentValue.patternName}</li>);
             }).bind(this));
       } else {
+        this.state.willClose = false;
         this.openClass="closed";
       }
 
@@ -42,6 +45,11 @@ export default class SearchResults extends React.Component {
     this.props.updatePattern(newPattern);
   }
 
+  handleCloseClick(e) {
+    console.log("Attempting to close");
+    this.setState({willClose: true});
+  }
+
   render() {
 
     return (
@@ -50,6 +58,9 @@ export default class SearchResults extends React.Component {
       <ul>
         {this.searchList}
       </ul>
+      <div className="searchCloseButtons"> 
+        <span onClick={this.handleCloseClick} >close results <i className="fa fa-times-circle" aria-hidden="true"></i></span>
+      </div>
       </div>
     </div>)
   }

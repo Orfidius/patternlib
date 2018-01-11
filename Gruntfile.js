@@ -193,8 +193,8 @@ module.exports = function (grunt) {
             'style.css',
             'js/*.custom.js',
             'js/{,*/}*.main.js',
-            'js/depend/{,*/}*.js',
-
+            'cssdep/*.css',
+            'js/jsdep/*.js'
           ],
         }]
       },
