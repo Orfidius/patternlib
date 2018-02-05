@@ -714,6 +714,250 @@ footer ul.social li a {
   border-radius: 30px;
   background-color: #fff;
 }
+.patternData {
+  position: fixed;
+  width: 60vw;
+  height: auto;
+  min-height: 80%;
+  max-width: 1400px;
+  background-color: #41a6e2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 50px;
+  transition: all 700ms ease-out;
+  z-index: 999999;
+  bottom: 10%;
+  background-color: #EF6653;
+  transition: all 1000ms;
+}
+.patternData.open {
+  left: 20%;
+}
+.patternData.closed {
+  left: -100%;
+}
+.patternData .jsonHeader,
+.patternData .section-header {
+  width: 100%;
+}
+.patternData .jsonHeader h2,
+.patternData .section-header h2,
+.patternData .jsonHeader h3,
+.patternData .section-header h3 {
+  text-align: center;
+}
+.patternData .jsonHeader .fa.fa-times-circle,
+.patternData .section-header .fa.fa-times-circle {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.patternData.meta .jsonMeta.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
+.patternData.elements .jsonElements.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+  flex-direction: column;
+}
+.patternData.dependancies .jsonDependancies.pane {
+  display: flex;
+  opacity: 1;
+  transition: all 1s;
+}
+.patternData .pane {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: all 1s;
+}
+.patternData .pane .inputgroup {
+  min-width: 300px;
+  padding: 10px 15px 5px;
+  flex-grow: 1;
+  height: auto;
+}
+.patternData .pane .inputgroup label {
+  width: 30%;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  background: #222;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: block;
+}
+.patternData .pane .inputgroup textarea,
+.patternData .pane .inputgroup input {
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid #222;
+  color: #222;
+}
+.patternData .pane .inputgroup textarea {
+  max-height: 400px;
+  min-height: 100px;
+  border-top-left-radius: 0;
+}
+.patternData .pane .inputgroup.nextButton {
+  width: 100%;
+}
+.patternData .pane.jsonMeta,
+.patternData .pane.jsonDependancies {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+.patternData .pane.jsonMeta .inputgroup,
+.patternData .pane.jsonDependancies .inputgroup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.patternData .pane.jsonMeta .inputgroup label,
+.patternData .pane.jsonDependancies .inputgroup label {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  min-width: 100px;
+}
+.patternData .pane.jsonMeta .inputgroup input,
+.patternData .pane.jsonDependancies .inputgroup input {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.patternData .pane.jsonMeta .inputgroup textarea,
+.patternData .pane.jsonDependancies .inputgroup textarea {
+  width: 100%;
+}
+.patternData .pane.jsonMeta .patternDescWrap,
+.patternData .pane.jsonDependancies .patternDescWrap {
+  flex-direction: column;
+}
+.patternData .pane.jsonMeta .patternDescWrap label,
+.patternData .pane.jsonDependancies .patternDescWrap label {
+  width: 30%;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 20px;
+  margin-bottom: 0;
+}
+.patternData .paneButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px dotted #fff;
+}
+.patternData .paneButton button {
+  background-color: #ef6653;
+  color: #fff;
+  border-radius: 30px;
+  padding: 5px 50px;
+  text-align: center;
+  transition: all 400ms ease;
+  border: none;
+}
+.patternData .paneButton button:hover {
+  color: #ef6653;
+  background-color: #fff;
+}
+.patternData .paneButton button.next {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.patternData .paneButton button.preview {
+  background-color: #87c952;
+  margin-right: 3px;
+  margin-left: 3px;
+  border-radius: 0;
+}
+.patternData .paneButton button.preview:hover {
+  background-color: #fff;
+  color: #87c952;
+}
+.patternData .paneButton button.previous {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.tabsSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: all 400ms;
+  cursor: pointer;
+}
+.tabsSelect span {
+  display: block;
+  padding: 10px 20px;
+  background-color: #87c952;
+}
+.tabsSelect span:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-right: 2px;
+}
+.tabsSelect span:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.tabsSelect span:hover {
+  background-color: #fff;
+  color: #87c952;
+}
+.tabsSelect .selected {
+  background: #fff;
+  color: #87c952;
+}
+.inputgroupWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.inputgroupWrap .inputgroup.dependancy {
+  position: relative;
+}
+.inputgroupWrap .inputgroup.dependancy .dependancyInput {
+  position: realitve;
+  z-index: 99;
+}
+.inputgroupWrap .addInput {
+  transition: all 400ms;
+  font-size: 30px;
+  position: absolute;
+  right: -35px;
+  bottom: 15px;
+  width: 80px;
+  height: 45px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #87c952;
+  cursor: pointer;
+}
+.inputgroupWrap .addInput:hover {
+  right: -25px;
+  background-color: #fff;
+  color: #87c952;
+}
 /* BASICS */
 
 .CodeMirror {

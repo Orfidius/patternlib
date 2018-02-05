@@ -4,6 +4,7 @@ import ReactRouter from "react-router";
 import Pattern from "./containers/pattern.component";
 import Jsongenerator from "./containers/jsonGenerator/jsonGenerator.component.js";
 import Header from "./containers/header.component";
+import Display from "./containers/display/display.component.js";
 
 class Main extends React.Component {
   constructor(props) {
@@ -30,11 +31,13 @@ class Main extends React.Component {
     this.state = {
       data: {},
       showGen: "closed",
+      showData: "closed",      
       currentPattern: {}
     };
 
     // Function Bindings
     this.showJsonGenerator = this.showJsonGenerator.bind(this);
+    this.showData = this.showData.bind(this);
     this.updateCurrentPattern = this.updateCurrentPattern.bind(this);
   }
 
@@ -52,6 +55,15 @@ class Main extends React.Component {
       this.setState({ showGen: "closed" });
     }
   }
+  showData(event) {
+    console.log("Show data Clicked");
+    if (this.state.showData == "closed") {
+      this.setState({ showData: "open" });
+    }
+    if (this.state.showData == "open") {
+      this.setState({ showData: "closed" });
+    }
+  }
 
   render() {
     // console.log("Main Comp", this.state.data);
@@ -61,10 +73,11 @@ class Main extends React.Component {
         <Header updatePattern={this.updateCurrentPattern} data={this.state.data} />
         <Pattern className="container" data={this.state.currentPattern} />
         <Jsongenerator isOpen={this.state.showGen} data={this.state.data} setPreview={this.updateCurrentPattern}  closeGen={this.showJsonGenerator}/>
+        <Display isOpen={this.state.showData} curData={this.state.data} />
         <div className="openJsonButton" onClick={this.showJsonGenerator}>
           <i className="fa fa-chevron-circle-up" aria-hidden="true" />
         </div>
-        <div className="openPatternInfo">
+        <div  onClick={this.showData} className="openPatternInfo">
           <i className="fa fa-file-code-o" aria-hidden="true" />
         </div>
       </div>

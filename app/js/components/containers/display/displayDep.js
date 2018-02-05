@@ -28,8 +28,7 @@ export default class Dependancies extends React.Component {
       jsArray: ["patternJsDep1"]
     };
     this.tabClick = this.tabClick.bind(this);
-    this.handleAddInput = this.handleAddInput.bind(this);
-    this.saveDepArray = this.saveDepArray.bind(this);
+
   }
 
   tabClick(e) {
@@ -52,58 +51,7 @@ export default class Dependancies extends React.Component {
     }
   }
 
-  updateCode(instance, data, value) {
-    this.props.codeUpdate("patterntDescription", value);
-  }
-
-  handleAddInput(e) {
-    let setCssArray = this.state.cssArray;
-    let setJsArray = this.state.jsArray;
-
-    console.log("Target data: ", e.target.dataset.target);
-
-    if (e.target.dataset.target === "css") {
-      let newCssNo = this.state.cssNo + 1;
-      setCssArray.push("patternCssDep" + newCssNo);
-      this.setState({ cssArray: setCssArray, cssNo: newCssNo });
-    }
-
-    if (e.target.dataset.target === "js") {
-      let newjsNo = this.state.JsNo + 1;
-      setJsArray.push("patternJsDep" + newjsNo);
-      this.setState({ jsArray: setJsArray, JsNo: newjsNo });
-    }
-  }
-
-  saveDepArray(event) {
-      let classList = event.target.classList; 
-      let arrayName = ""; 
-      let search = "";
-      if (classList.contains("JSinput")) {
-        arrayName = "patternJsDep";
-        search = "JSinput";
-      }
-      if (classList.contains("CSSinput")) {
-        arrayName = "patternCssDep";
-        search = "CSSinput";
-        
-      }
-      let elements = document.getElementsByClassName(search); 
-      let data = []; 
-
-      console.log("elements type", elements);
-
-      Array.prototype.forEach.call(elements, (element) => {
-          data.push(element.value); 
-          
-      });
-
-       console.log("Array Name: ", arrayName);
-       let objectData = {key: arrayName, values: data };
-
-      this.props.updateArray(objectData);
-  }
-
+  
   render() {
     return (
       <div id="jsonDependancies" className="pane jsonDependancies">

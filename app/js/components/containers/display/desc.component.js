@@ -1,13 +1,11 @@
 import React from "react";
-import CodeMirror from "react-codemirror2";
-require('../../../../../node_modules/codemirror/mode/htmlmixed/htmlmixed');
 
 // Code Mirror Use https://github.com/JedWatson/react-codemirror
 const options = {
   mode: "htmlmixed",
   theme: "default",
   lineNumbers: true,
-  lineWrapping: true  
+  lineWrapping: true
 };
 
 const selected = {
@@ -18,7 +16,7 @@ const unselected = {
 }
 
 //TODO: Add tab functionallity for the description and the meta data
-export default class Meta extends React.Component {
+export default class description extends React.Component {
   constructor(props) {
     super(props);
     this.updateData = this.props.updateFormData;
@@ -27,11 +25,23 @@ export default class Meta extends React.Component {
       isDesc: unselected,
       metaTab: "selected",
       descTab: "",
-      code: "// Enter Description or instructions here. Feel fre to use HTML!"
+      code: "// Enter Description or instructions here. Feel fre to use HTML!",
+      data: {patternName: "No Name Selected", patternAuthor: "No Author Selected", patternDescription: "No Description Selected" }
     }
     this.tabClick = this.tabClick.bind(this);
-    this.updateCode = this.updateCode.bind(this);
+    this.setDescription = this.setDescription.bind(this);
+    
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("testing props");
+    if (typeof nextProps.data != "undefined") { 
+      console.log('setting data', nextProps.data);
+      this.setState({data: nextProps.data});
+    }
+  }
+
+
 
   tabClick(e){
   
@@ -43,9 +53,14 @@ export default class Meta extends React.Component {
         this.setState({isMeta: unselected, isDesc: selected, metaTab: "", descTab: "selected"});
       }
   }
-  updateCode(instance, data, value) {
-    
-    this.props.codeUpdate("patternDescription", value);
+
+  setDescription() {
+    console.log("setting html", this.state.data.patternDescription);
+    return {__html: this.state.data.patternDescription};
+  }
+
+   createMarkup() {
+    return { '__html' : "<p>hello</p>"};
   }
 
   render() {
@@ -61,52 +76,30 @@ export default class Meta extends React.Component {
         <div className="tabWrap ">
           <div className="tab1" id="tab1" style={this.state.isMeta}>
             <div className="inputgroup">
-              <label htmlFor="patternName">Name</label>
-              <input
-                type="text"
-                name="patternName"
-                id="patternName"
-                onChange={this.props.updateFormData}
-              />
+              <span htmlFor="patternName">Name</span>
+              <div className="dispMeta">
+                  <p>
+                  {this.state.data.patternName}
+                  </p>
+              </div>
             </div>
             <div className="inputgroup">
-              <label htmlFor="patternTags">tags</label>
-              <input
-                type="text"
-                name="patterntTags"
-                id="patternTags"
-                onChange={this.props.updateFormData}
-              />
+              <span htmlFor="patternAuthor">Author</span>
+              <p>
+              {this.state.data.patternAuthor}
+              
+              
+              </p>
             </div>
             <div className="inputgroup">
-              <label htmlFor="patternAuthor">Author</label>
-              <input
-                type="text"
-                name="patterntAuthor"
-                id="patternAuthor"
-                onChange={this.props.updateFormData}
-              />
-            </div>
-            <div className="inputgroup">
-              <label htmlFor="patternExample">Site Example URL</label>
-              <input
-                type="text"
-                name="patterntExample"
-                id="patternExample"
-                onChange={this.props.updateFormData}
-              />
+              <span htmlFor="patternExample">Site Example URL</span>
+              {this.state.data.patternExample}              
             </div>
           </div>
           <div className="tab2" style={this.state.isDesc}>
             <div className="inputgroup patternDescWrap">
-              <label htmlFor="patternDescription">Description</label>
-              <CodeMirror
-                value={this.state.code}
-                name="patterntDescription"
-                id="patternDescription"
-                onChange={this.updateCode}
-                options={options}
-              />
+              <span htmlFor="patternDescription">Description</span>
+              <div dangerouslySetInnerHTML = {this.setDescription()} />
             </div>
           </div>
         </div>
